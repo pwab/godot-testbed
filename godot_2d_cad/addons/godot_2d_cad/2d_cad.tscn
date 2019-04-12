@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://addons/godot_2d_cad/2d_cad_dock.gd" type="Script" id=1]
+
+[node name="2d_cad" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="Button" type="Button" parent="."]
+margin_right = 322.0
+margin_bottom = 84.0
+text = "LOL"
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
