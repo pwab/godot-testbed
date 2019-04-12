@@ -1,0 +1,76 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://world.gd" type="Script" id=1]
+[ext_resource path="res://udp_connection.gd" type="Script" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+
+[node name="world" type="Node2D"]
+scale = Vector2( 2, 2 )
+script = ExtResource( 1 )
+
+[node name="ui" type="VBoxContainer" parent="."]
+margin_right = 640.0
+margin_bottom = 360.0
+rect_clip_content = true
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="connection" type="HBoxContainer" parent="ui"]
+editor/display_folded = true
+margin_right = 640.0
+margin_bottom = 50.0
+
+[node name="ip" type="LineEdit" parent="ui/connection"]
+margin_right = 640.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "192.168.188.21"
+align = 1
+
+[node name="buttons" type="HBoxContainer" parent="ui"]
+editor/display_folded = true
+margin_top = 54.0
+margin_right = 640.0
+margin_bottom = 104.0
+
+[node name="server_button" type="Button" parent="ui/buttons"]
+margin_right = 318.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Server"
+
+[node name="client_button" type="Button" parent="ui/buttons"]
+margin_left = 322.0
+margin_right = 640.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Client"
+
+[node name="edit" type="ItemList" parent="ui"]
+visible = false
+margin_top = 108.0
+margin_right = 640.0
+margin_bottom = 360.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="udp" type="Node" parent="."]
+script = ExtResource( 2 )
+run_on_startup = false
+
+[node name="point" type="Polygon2D" parent="."]
+color = Color( 0.914063, 0.51416, 0, 0.588235 )
+polygon = PoolVector2Array( 0, -5, 5, 0, 0, 5, -5, 0 )
+
+[node name="sprite" type="Sprite" parent="."]
+position = Vector2( 320, 180 )
+texture = ExtResource( 3 )
+region_rect = Rect2( 1, 0, 62, 64 )
+
