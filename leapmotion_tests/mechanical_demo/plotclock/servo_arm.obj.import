@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/servo_arm.obj-d0da4ce222424a873511215393b1fccc.mesh"
+
+[deps]
+
+files=[ "res://.import/servo_arm.obj-d0da4ce222424a873511215393b1fccc.mesh" ]
+
+source_file="res://plotclock/servo_arm.obj"
+dest_files=[ "res://.import/servo_arm.obj-d0da4ce222424a873511215393b1fccc.mesh", "res://.import/servo_arm.obj-d0da4ce222424a873511215393b1fccc.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true

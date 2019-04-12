@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/spinner.obj-038f707441704a585daf5fcfd6d2b545.mesh"
+
+[deps]
+
+files=[ "res://.import/spinner.obj-038f707441704a585daf5fcfd6d2b545.mesh" ]
+
+source_file="res://spinner/spinner.obj"
+dest_files=[ "res://.import/spinner.obj-038f707441704a585daf5fcfd6d2b545.mesh", "res://.import/spinner.obj-038f707441704a585daf5fcfd6d2b545.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true

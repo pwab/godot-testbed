@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/piston_head.obj-a72de92d53e5f8cde6c5f9c27d1304c3.mesh"
+
+[deps]
+
+files=[ "res://.import/piston_head.obj-a72de92d53e5f8cde6c5f9c27d1304c3.mesh" ]
+
+source_file="res://v8_engine/piston_head.obj"
+dest_files=[ "res://.import/piston_head.obj-a72de92d53e5f8cde6c5f9c27d1304c3.mesh", "res://.import/piston_head.obj-a72de92d53e5f8cde6c5f9c27d1304c3.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true

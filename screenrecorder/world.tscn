@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://sprite.cs" type="Script" id=1]
+
+[node name="world" type="Node2D"]
+
+[node name="sprite" type="Sprite" parent="."]
+position = Vector2( 960, 540 )
+script = ExtResource( 1 )
+

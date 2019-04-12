@@ -1,0 +1,518 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://v8_engine/engine_block.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://v8_engine/crank_shaft.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://v8_engine/crank_shaft_clamp.obj" type="ArrayMesh" id=3]
+[ext_resource path="res://v8_engine/handle.obj" type="ArrayMesh" id=4]
+[ext_resource path="res://v8_engine/piston.tscn" type="PackedScene" id=5]
+
+[sub_resource type="SpatialMaterial" id=5]
+
+render_priority = 0
+flags_transparent = false
+flags_unshaded = false
+flags_vertex_lighting = false
+flags_no_depth_test = false
+flags_use_point_size = false
+flags_world_triplanar = false
+flags_fixed_size = false
+flags_albedo_tex_force_srgb = false
+vertex_color_use_as_albedo = false
+vertex_color_is_srgb = false
+params_diffuse_mode = 0
+params_specular_mode = 0
+params_blend_mode = 0
+params_cull_mode = 0
+params_depth_draw_mode = 0
+params_line_width = 1.0
+params_point_size = 1.0
+params_billboard_mode = 0
+params_grow = false
+params_use_alpha_scissor = false
+albedo_color = Color( 1, 1, 1, 1 )
+metallic = 1.0
+metallic_specular = 0.5
+metallic_texture_channel = 0
+roughness = 1.0
+roughness_texture_channel = 0
+emission_enabled = false
+normal_enabled = false
+rim_enabled = false
+clearcoat_enabled = false
+anisotropy_enabled = false
+ao_enabled = false
+depth_enabled = false
+subsurf_scatter_enabled = false
+transmission_enabled = false
+refraction_enabled = false
+detail_enabled = false
+uv1_scale = Vector3( 1, 1, 1 )
+uv1_offset = Vector3( 0, 0, 0 )
+uv1_triplanar = false
+uv1_triplanar_sharpness = 1.0
+uv2_scale = Vector3( 1, 1, 1 )
+uv2_offset = Vector3( 0, 0, 0 )
+uv2_triplanar = false
+uv2_triplanar_sharpness = 1.0
+proximity_fade_enable = false
+distance_fade_enable = false
+_sections_unfolded = [ "Metallic", "Roughness" ]
+
+[sub_resource type="BoxShape" id=7]
+
+extents = Vector3( 0.188216, 1.63684, 5.73999 )
+
+[sub_resource type="SpatialMaterial" id=8]
+
+render_priority = 0
+flags_transparent = false
+flags_unshaded = false
+flags_vertex_lighting = false
+flags_no_depth_test = false
+flags_use_point_size = false
+flags_world_triplanar = false
+flags_fixed_size = false
+flags_albedo_tex_force_srgb = false
+vertex_color_use_as_albedo = false
+vertex_color_is_srgb = false
+params_diffuse_mode = 0
+params_specular_mode = 0
+params_blend_mode = 0
+params_cull_mode = 0
+params_depth_draw_mode = 0
+params_line_width = 1.0
+params_point_size = 1.0
+params_billboard_mode = 0
+params_grow = false
+params_use_alpha_scissor = false
+albedo_color = Color( 1, 1, 1, 1 )
+metallic = 1.0
+metallic_specular = 0.5
+metallic_texture_channel = 0
+roughness = 0.0
+roughness_texture_channel = 0
+emission_enabled = false
+normal_enabled = false
+rim_enabled = false
+clearcoat_enabled = false
+anisotropy_enabled = false
+ao_enabled = false
+depth_enabled = false
+subsurf_scatter_enabled = false
+transmission_enabled = false
+refraction_enabled = false
+detail_enabled = false
+uv1_scale = Vector3( 1, 1, 1 )
+uv1_offset = Vector3( 0, 0, 0 )
+uv1_triplanar = false
+uv1_triplanar_sharpness = 1.0
+uv2_scale = Vector3( 1, 1, 1 )
+uv2_offset = Vector3( 0, 0, 0 )
+uv2_triplanar = false
+uv2_triplanar_sharpness = 1.0
+proximity_fade_enable = false
+distance_fade_enable = false
+_sections_unfolded = [ "Metallic" ]
+
+[sub_resource type="BoxShape" id=1]
+
+extents = Vector3( 1, 2.26726, 0.190271 )
+
+[sub_resource type="BoxShape" id=2]
+
+extents = Vector3( 0.4398, 0.449185, 0.533501 )
+
+[node name="v8_engine" type="Spatial" index="0"]
+
+[node name="engine_block" type="RigidBody" parent="." index="0"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.99973, 0 )
+input_ray_pickable = true
+input_capture_on_drag = false
+collision_layer = 1
+collision_mask = 1
+mode = 1
+mass = 20.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = false
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+axis_lock_linear_x = false
+axis_lock_linear_y = false
+axis_lock_linear_z = false
+axis_lock_angular_x = false
+axis_lock_angular_y = false
+axis_lock_angular_z = false
+linear_velocity = Vector3( 0, 0, 0 )
+linear_damp = -1.0
+angular_velocity = Vector3( 0, 0, 0 )
+angular_damp = -1.0
+
+[node name="mesh" type="MeshInstance" parent="engine_block" index="0"]
+
+transform = Transform( 0.1, 0, 0, 0, -4.37114e-09, -0.1, 0, 0.1, -4.37114e-09, 0, 0, 0 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = ExtResource( 1 )
+skeleton = NodePath("..")
+material/0 = SubResource( 5 )
+material/1 = null
+_sections_unfolded = [ "Transform", "material" ]
+
+[node name="collision" type="CollisionPolygon" parent="engine_block" index="1"]
+
+depth = 11.5
+disabled = false
+polygon = PoolVector2Array( -5.84575, 3.97612, -5.52107, 4.34988, -3.83607, 2.57771, -3.35115, 1.87734, -3.17185, 1.13876, -3.1159, -0.0634098, -2.08145, -1.94754, -0.800456, -2.49896, 0.651398, -2.53062, 1.83068, -1.73261, 3.11375, -0.141006, 3.15256, 1.19112, 3.10895, 1.77066, 3.95502, 2.69305, 5.46823, 4.28103, 5.81868, 3.94871, 4.04265, 2.29189, 3.99136, 0.514167, 2.96976, -0.956361, 2.74253, -2.87519, -2.96665, -2.88418, -3.2805, -1.23006, -4.01918, 0.592037, -4.25799, 2.28341 )
+
+[node name="wall_left" type="CollisionShape" parent="engine_block" index="2"]
+
+transform = Transform( 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, -2.89891, 4.64745, 0 )
+shape = SubResource( 7 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="wall_right" type="CollisionShape" parent="engine_block" index="3"]
+
+transform = Transform( -0.707107, 0.707107, -8.74228e-08, 0.707107, 0.707107, 0, 6.18172e-08, -6.18172e-08, -1, 2.75112, 4.64745, 0 )
+shape = SubResource( 7 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="crank_shaft" type="RigidBody" parent="." index="1"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.87748, 0 )
+input_ray_pickable = true
+input_capture_on_drag = false
+collision_layer = 1
+collision_mask = 1
+mode = 0
+mass = 20.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = false
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = false
+linear_velocity = Vector3( 0, 0, 0 )
+linear_damp = -1.0
+angular_velocity = Vector3( 0, 0, 0 )
+angular_damp = -1.0
+_sections_unfolded = [ "Axis Lock" ]
+
+[node name="mesh" type="MeshInstance" parent="crank_shaft" index="0"]
+
+transform = Transform( 0.1, 0, 0, 0, -4.37114e-09, -0.1, 0, 0.1, -4.37114e-09, 0, 0, -4.68385 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = ExtResource( 2 )
+skeleton = NodePath("..")
+material/0 = SubResource( 8 )
+material/1 = null
+_sections_unfolded = [ "Transform", "material" ]
+
+[node name="ending" type="CollisionPolygon" parent="crank_shaft" index="1"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.31569 )
+depth = 1.0
+disabled = false
+polygon = PoolVector2Array( 0.633701, 0.762968, 0.370335, 0.921965, 0.0869707, 0.985775, -0.205216, 0.965499, -0.476076, 0.875206, -0.706957, 0.703076, -0.868725, 0.485994, -0.990696, 0.169128, -0.98893, -0.180044, -0.893389, -0.45277, -0.677584, -0.728035, -0.373581, -0.919152, -0.00885189, -0.994749, 0.350329, -0.931854, 0.67063, -0.742436, 0.883329, -0.46987, 0.990578, -0.0906093, 0.965343, 0.236781, 0.85007, 0.50397 )
+
+[node name="ending2" type="CollisionPolygon" parent="crank_shaft" index="2"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.19241 )
+depth = 1.0
+disabled = false
+polygon = PoolVector2Array( 0.633701, 0.762968, 0.370335, 0.921965, 0.0869707, 0.985775, -0.205216, 0.965499, -0.476076, 0.875206, -0.706957, 0.703076, -0.868725, 0.485994, -0.990696, 0.169128, -0.98893, -0.180044, -0.893389, -0.45277, -0.677584, -0.728035, -0.373581, -0.919152, -0.00885189, -0.994749, 0.350329, -0.931854, 0.67063, -0.742436, 0.883329, -0.46987, 0.990578, -0.0906093, 0.965343, 0.236781, 0.85007, 0.50397 )
+
+[node name="crank_shaft_clamp" type="RigidBody" parent="." index="2"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6972, 5.32453 )
+input_ray_pickable = true
+input_capture_on_drag = false
+collision_layer = 1
+collision_mask = 1
+mode = 1
+mass = 2.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = false
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+axis_lock_linear_x = false
+axis_lock_linear_y = false
+axis_lock_linear_z = false
+axis_lock_angular_x = false
+axis_lock_angular_y = false
+axis_lock_angular_z = false
+linear_velocity = Vector3( 0, 0, 0 )
+linear_damp = -1.0
+angular_velocity = Vector3( 0, 0, 0 )
+angular_damp = -1.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="mesh" type="MeshInstance" parent="crank_shaft_clamp" index="0"]
+
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0.00995755 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = ExtResource( 3 )
+skeleton = NodePath("..")
+material/0 = null
+_sections_unfolded = [ "Transform" ]
+
+[node name="collision" type="CollisionPolygon" parent="crank_shaft_clamp" index="1"]
+
+depth = 0.6
+disabled = false
+polygon = PoolVector2Array( 2.19431, -0.361649, 2.19857, -0.623803, 1.10438, -0.61782, 0.984651, -0.170328, 0.794194, 0.136212, 0.377959, 0.404516, -0.0313035, 0.47536, -0.469146, 0.37389, -0.853653, 0.063675, -1.03378, -0.254854, -1.09414, -0.626015, -2.18781, -0.610889, -2.17573, -0.319942, -1.33433, -0.306595, -1.18846, 0.0629058, -0.869973, 0.465818, -0.491726, 0.682216, -0.0574519, 0.756968, 0.365731, 0.717521, 0.756437, 0.523605, 1.17175, 0.12718, 1.35174, -0.369307 )
+
+[node name="crank_shaft_clamp2" type="RigidBody" parent="." index="3"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6972, -5.47269 )
+input_ray_pickable = true
+input_capture_on_drag = false
+collision_layer = 1
+collision_mask = 1
+mode = 1
+mass = 2.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = false
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+axis_lock_linear_x = false
+axis_lock_linear_y = false
+axis_lock_linear_z = false
+axis_lock_angular_x = false
+axis_lock_angular_y = false
+axis_lock_angular_z = false
+linear_velocity = Vector3( 0, 0, 0 )
+linear_damp = -1.0
+angular_velocity = Vector3( 0, 0, 0 )
+angular_damp = -1.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="mesh" type="MeshInstance" parent="crank_shaft_clamp2" index="0"]
+
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0.00995755 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = ExtResource( 3 )
+skeleton = NodePath("..")
+material/0 = null
+_sections_unfolded = [ "Transform" ]
+
+[node name="collision" type="CollisionPolygon" parent="crank_shaft_clamp2" index="1"]
+
+depth = 0.6
+disabled = false
+polygon = PoolVector2Array( 2.19431, -0.361649, 2.19857, -0.623803, 1.10438, -0.61782, 0.984651, -0.170328, 0.794194, 0.136212, 0.377959, 0.404516, -0.0313035, 0.47536, -0.469146, 0.37389, -0.853653, 0.063675, -1.03378, -0.254854, -1.09414, -0.626015, -2.18781, -0.610889, -2.17573, -0.319942, -1.33433, -0.306595, -1.18846, 0.0629058, -0.869973, 0.465818, -0.491726, 0.682216, -0.0574519, 0.756968, 0.365731, 0.717521, 0.756437, 0.523605, 1.17175, 0.12718, 1.35174, -0.369307 )
+
+[node name="handle" type="RigidBody" parent="." index="4"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.88423, 6.09654 )
+input_ray_pickable = true
+input_capture_on_drag = false
+collision_layer = 1
+collision_mask = 1
+mode = 0
+mass = 20.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = false
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+axis_lock_linear_x = false
+axis_lock_linear_y = false
+axis_lock_linear_z = false
+axis_lock_angular_x = false
+axis_lock_angular_y = false
+axis_lock_angular_z = false
+linear_velocity = Vector3( 0, 0, 0 )
+linear_damp = -1.0
+angular_velocity = Vector3( 0, 0, 0 )
+angular_damp = -1.0
+
+[node name="mesh" type="MeshInstance" parent="handle" index="0"]
+
+transform = Transform( 0.1, 0, 0, 0, -4.37114e-09, -0.1, 0, 0.1, -4.37114e-09, 0, -0.0123034, -0.261627 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = ExtResource( 4 )
+skeleton = NodePath("..")
+material/0 = null
+material/1 = null
+_sections_unfolded = [ "Transform" ]
+
+[node name="front" type="CollisionShape" parent="handle" index="1"]
+
+transform = Transform( 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 0, 0, 1, 0.260574, 1.32704, -0.0591307 )
+shape = SubResource( 1 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="grip" type="CollisionShape" parent="handle" index="2"]
+
+transform = Transform( 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 0, 0, 1, 0.690233, 3.20576, 0.82048 )
+shape = SubResource( 2 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="handle_shaft" type="Generic6DOFJoint" parent="." index="5"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.88527, 5.89128 )
+nodes/node_a = NodePath("../handle")
+nodes/node_b = NodePath("../crank_shaft")
+solver/priority = 1
+collision/exclude_nodes = true
+linear_limit_x/enabled = true
+linear_limit_x/upper_distance = 0.0
+linear_limit_x/lower_distance = 0.0
+linear_limit_x/softness = 0.7
+linear_limit_x/restitution = 0.5
+linear_limit_x/damping = 1.0
+angular_limit_x/enabled = true
+angular_limit_x/upper_angle = 0.0
+angular_limit_x/lower_angle = 0.0
+angular_limit_x/softness = 0.5
+angular_limit_x/restitution = 0.0
+angular_limit_x/damping = 1.0
+angular_limit_x/force_limit = 0.0
+angular_limit_x/erp = 0.5
+angular_motor_x/enabled = false
+angular_motor_x/target_velocity = 0.0
+angular_motor_x/force_limit = 300.0
+linear_limit_y/enabled = true
+linear_limit_y/upper_distance = 0.0
+linear_limit_y/lower_distance = 0.0
+linear_limit_y/softness = 0.7
+linear_limit_y/restitution = 0.5
+linear_limit_y/damping = 1.0
+angular_limit_y/enabled = true
+angular_limit_y/upper_angle = 0.0
+angular_limit_y/lower_angle = 0.0
+angular_limit_y/softness = 0.5
+angular_limit_y/restitution = 0.0
+angular_limit_y/damping = 1.0
+angular_limit_y/force_limit = 0.0
+angular_limit_y/erp = 0.5
+angular_motor_y/enabled = false
+angular_motor_y/target_velocity = 0.0
+angular_motor_y/force_limit = 300.0
+linear_limit_z/enabled = true
+linear_limit_z/upper_distance = 0.0
+linear_limit_z/lower_distance = 0.0
+linear_limit_z/softness = 0.7
+linear_limit_z/restitution = 0.5
+linear_limit_z/damping = 1.0
+angular_limit_z/enabled = true
+angular_limit_z/upper_angle = 0.0
+angular_limit_z/lower_angle = 0.0
+angular_limit_z/softness = 0.5
+angular_limit_z/restitution = 0.0
+angular_limit_z/damping = 1.0
+angular_limit_z/force_limit = 0.0
+angular_limit_z/erp = 0.5
+angular_motor_z/enabled = false
+angular_motor_z/target_velocity = 100.0
+angular_motor_z/force_limit = 999999.0
+
+[node name="piston1" parent="." index="6" instance=ExtResource( 5 )]
+
+transform = Transform( 0.788011, -0.615662, 0, 0.615662, 0.788011, 0, 0, 0, 1, 0, 1.7, 3.8 )
+
+[node name="piston2" parent="." index="7" instance=ExtResource( 5 )]
+
+transform = Transform( 0.615661, -0.788011, 0, 0.788011, 0.615661, 0, 0, 0, 1, 1, 2.8, 1.3 )
+
+[node name="piston3" parent="." index="8" instance=ExtResource( 5 )]
+
+transform = Transform( 0.788011, -0.615662, 0, 0.615662, 0.788011, 0, 0, 0, 1, -1, 2.8, -1.2 )
+
+[node name="piston4" parent="." index="9" instance=ExtResource( 5 )]
+
+transform = Transform( 0.615661, -0.788011, 0, 0.788011, 0.615661, 0, 0, 0, 1, 0, 3.9, -3.6 )
+
+[node name="piston5" parent="." index="10" instance=ExtResource( 5 )]
+
+transform = Transform( -0.788011, 0.615662, -8.74228e-08, 0.615662, 0.788011, 0, 6.88901e-08, -5.38228e-08, -1, 0, 1.7, 3.8 )
+
+[node name="piston6" parent="." index="11" instance=ExtResource( 5 )]
+
+transform = Transform( -0.788011, 0.615662, -8.74228e-08, 0.615662, 0.788011, 0, 6.88901e-08, -5.38228e-08, -1, 1, 2.8, 1.3 )
+
+[node name="piston7" parent="." index="12" instance=ExtResource( 5 )]
+
+transform = Transform( -0.615661, 0.788011, -8.74228e-08, 0.788011, 0.615661, 0, 5.38228e-08, -6.88901e-08, -1, -1, 2.8, -1.2 )
+
+[node name="piston8" parent="." index="13" instance=ExtResource( 5 )]
+
+transform = Transform( -0.615661, 0.788011, -8.74228e-08, 0.788011, 0.615661, 0, 5.38228e-08, -6.88901e-08, -1, 0, 3.9, -3.731 )
+
+

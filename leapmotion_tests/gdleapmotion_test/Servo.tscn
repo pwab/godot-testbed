@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Servo_Arm.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Servo_Body.tscn" type="PackedScene" id=2]
+
+[node name="Servo" type="Spatial" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.308688, 0 )
+
+[node name="Servo_Arm" parent="." index="0" instance=ExtResource( 1 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0372625, 0.0310127, 0.0377349 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Servo_Body" parent="." index="1" instance=ExtResource( 2 )]
+
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.0249565, -0.0020235, 0.0377349 )
+mass = 10.0
+bounce = 0.1
+continuous_cd = true
+
+[node name="HingeJoint" type="HingeJoint" parent="." index="2"]
+
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.0353512, 0.0296382, 0.0377349 )
+nodes/node_a = NodePath("../Servo_Arm")
+nodes/node_b = NodePath("../Servo_Body")
+solver/priority = 1
+collision/exclude_nodes = true
+params/bias = 0.1
+angular_limit/enable = false
+angular_limit/upper = 50.0
+angular_limit/lower = -50.0
+angular_limit/bias = 0.3
+angular_limit/softness = 0.9
+angular_limit/relaxation = 1.0
+motor/enable = false
+motor/target_velocity = 1.0
+motor/max_impulse = 1.0
+_sections_unfolded = [ "Transform", "angular_limit", "nodes", "params" ]
+
+

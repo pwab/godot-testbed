@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/servohorn.obj-59428665e5c2d3d1561eb80b338181b3.mesh"
+
+[deps]
+
+files=[ "res://.import/servohorn.obj-59428665e5c2d3d1561eb80b338181b3.mesh" ]
+
+source_file="res://plotclock/servohorn.obj"
+dest_files=[ "res://.import/servohorn.obj-59428665e5c2d3d1561eb80b338181b3.mesh", "res://.import/servohorn.obj-59428665e5c2d3d1561eb80b338181b3.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true

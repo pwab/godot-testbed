@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/servo_arm.obj-8cea5bef44cf2e5c6e0484557aa11bdc.mesh"
+
+[deps]
+
+files=[ "res://.import/servo_arm.obj-8cea5bef44cf2e5c6e0484557aa11bdc.mesh" ]
+
+source_file="res://servo_arm.obj"
+dest_files=[ "res://.import/servo_arm.obj-8cea5bef44cf2e5c6e0484557aa11bdc.mesh", "res://.import/servo_arm.obj-8cea5bef44cf2e5c6e0484557aa11bdc.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true

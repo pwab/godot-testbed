@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/crank_shaft.obj-96e98b007ede7db539538ec7690f3e32.mesh"
+
+[deps]
+
+files=[ "res://.import/crank_shaft.obj-96e98b007ede7db539538ec7690f3e32.mesh" ]
+
+source_file="res://v8_engine/crank_shaft.obj"
+dest_files=[ "res://.import/crank_shaft.obj-96e98b007ede7db539538ec7690f3e32.mesh", "res://.import/crank_shaft.obj-96e98b007ede7db539538ec7690f3e32.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true

@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://world.cs" type="Script" id=1]
+[ext_resource path="res://naudio_test.cs" type="Script" id=2]
+
+[node name="world" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="naudio_test" type="Node2D" parent="."]
+position = Vector2( 468, 204 )
+script = ExtResource( 2 )
+
+[node name="start_button" type="Button" parent="naudio_test"]
+margin_right = 12.0
+margin_bottom = 20.0
+text = "Start"
+
+[node name="stop_button" type="Button" parent="naudio_test"]
+margin_left = 58.0
+margin_top = -1.0
+margin_right = 100.0
+margin_bottom = 19.0
+text = "Stop"
+
+[connection signal="pressed" from="naudio_test/start_button" to="naudio_test" method="_on_start_button_pressed"]
+[connection signal="pressed" from="naudio_test/stop_button" to="naudio_test" method="_on_stop_button_pressed"]

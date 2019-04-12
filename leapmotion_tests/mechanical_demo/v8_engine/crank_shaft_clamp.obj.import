@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/crank_shaft_clamp.obj-261f19ab8639ffc96c0b7cc139479d04.mesh"
+
+[deps]
+
+files=[ "res://.import/crank_shaft_clamp.obj-261f19ab8639ffc96c0b7cc139479d04.mesh" ]
+
+source_file="res://v8_engine/crank_shaft_clamp.obj"
+dest_files=[ "res://.import/crank_shaft_clamp.obj-261f19ab8639ffc96c0b7cc139479d04.mesh", "res://.import/crank_shaft_clamp.obj-261f19ab8639ffc96c0b7cc139479d04.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true
