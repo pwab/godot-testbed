@@ -1,0 +1,4514 @@
+[gd_scene load_steps=47 format=2]
+
+[ext_resource path="res://window.gd" type="Script" id=1]
+[ext_resource path="res://os_test_menu.gd" type="Script" id=2]
+[ext_resource path="res://os_test_welcome.gd" type="Script" id=3]
+[ext_resource path="res://get_name.gd" type="Script" id=4]
+[ext_resource path="res://get_model_name.gd" type="Script" id=5]
+[ext_resource path="res://get_unique_id.gd" type="Script" id=6]
+[ext_resource path="res://has_environment.gd" type="Script" id=7]
+[ext_resource path="res://get_environment.gd" type="Script" id=8]
+[ext_resource path="res://has_feature.gd" type="Script" id=9]
+[ext_resource path="res://can_draw.gd" type="Script" id=10]
+[ext_resource path="res://get_cmdline_args.gd" type="Script" id=11]
+[ext_resource path="res://get_exit_code.gd" type="Script" id=12]
+[ext_resource path="res://set_exit_code.gd" type="Script" id=13]
+[ext_resource path="res://get_executable_path.gd" type="Script" id=14]
+[ext_resource path="res://is_debug_build.gd" type="Script" id=15]
+[ext_resource path="res://is_stdout_verbose.gd" type="Script" id=16]
+[ext_resource path="res://get_power_percent_left.gd" type="Script" id=17]
+[ext_resource path="res://get_power_seconds_left.gd" type="Script" id=18]
+[ext_resource path="res://get_power_state.gd" type="Script" id=19]
+[ext_resource path="res://get_screen_count.gd" type="Script" id=20]
+[ext_resource path="res://get_current_screen.gd" type="Script" id=21]
+[ext_resource path="res://set_current_screen.gd" type="Script" id=22]
+[ext_resource path="res://get_screen_size.gd" type="Script" id=23]
+[ext_resource path="res://get_screen_dpi.gd" type="Script" id=24]
+[ext_resource path="res://set_screen_orientation.gd" type="Script" id=25]
+[ext_resource path="res://get_screen_position.gd" type="Script" id=26]
+[ext_resource path="res://has_touchscreen_ui_hint.gd" type="Script" id=27]
+[ext_resource path="res://is_keep_screen_on.gd" type="Script" id=28]
+[ext_resource path="res://set_keep_screen_on.gd" type="Script" id=29]
+[ext_resource path="res://is_vsync_enabled.gd" type="Script" id=30]
+[ext_resource path="res://set_use_vsync.gd" type="Script" id=31]
+[ext_resource path="res://get_borderless_window.gd" type="Script" id=32]
+[ext_resource path="res://set_borderless_window.gd" type="Script" id=33]
+[ext_resource path="res://get_window_position.gd" type="Script" id=34]
+[ext_resource path="res://set_window_position.gd" type="Script" id=35]
+[ext_resource path="res://get_window_size.gd" type="Script" id=36]
+[ext_resource path="res://set_window_size.gd" type="Script" id=37]
+[ext_resource path="res://is_window_fullscreen.gd" type="Script" id=38]
+[ext_resource path="res://set_window_fullscreen.gd" type="Script" id=39]
+[ext_resource path="res://is_window_maximized.gd" type="Script" id=40]
+[ext_resource path="res://set_window_maximized.gd" type="Script" id=41]
+[ext_resource path="res://is_window_minimized.gd" type="Script" id=42]
+[ext_resource path="res://set_window_minimized.gd" type="Script" id=43]
+[ext_resource path="res://is_window_resizable.gd" type="Script" id=44]
+[ext_resource path="res://set_window_resizable.gd" type="Script" id=45]
+[ext_resource path="res://set_window_title.gd" type="Script" id=46]
+
+[node name="window" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="tabs" type="TabContainer" parent="."]
+margin_right = 1280.0
+margin_bottom = 720.0
+tab_align = 0
+
+[node name="OS Test" type="ScrollContainer" parent="tabs"]
+editor/display_folded = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 61.0
+margin_right = -8.0
+margin_bottom = -8.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="grid" type="GridContainer" parent="tabs/OS Test"]
+editor/display_folded = true
+margin_right = 1264.0
+margin_bottom = 186.0
+size_flags_horizontal = 3
+
+[node name="os_test_menu" type="GraphNode" parent="tabs/OS Test/grid"]
+editor/display_folded = true
+margin_right = 1264.0
+margin_bottom = 95.0
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "Menu"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 2 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/OS Test/grid/os_test_menu"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 85.0
+
+[node name="restart" type="Button" parent="tabs/OS Test/grid/os_test_menu/hbox"]
+margin_right = 596.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+text = "Restart"
+
+[node name="quit" type="Button" parent="tabs/OS Test/grid/os_test_menu/hbox"]
+margin_left = 604.0
+margin_right = 1200.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+text = "Quit"
+
+[node name="os_test_welcome" type="GraphNode" parent="tabs/OS Test/grid" groups=[
+"getters",
+]]
+editor/display_folded = true
+margin_top = 103.0
+margin_right = 1264.0
+margin_bottom = 186.0
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "OS Test Demo"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 3 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/OS Test/grid/os_test_welcome"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 73.0
+
+[node name="label" type="Label" parent="tabs/OS Test/grid/os_test_welcome/hbox"]
+margin_right = 1200.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+autowrap = true
+
+[node name="Vorlage" type="ScrollContainer" parent="tabs"]
+editor/display_folded = true
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 61.0
+margin_right = -8.0
+margin_bottom = -8.0
+scroll_vertical = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="grid" type="GridContainer" parent="tabs/Vorlage"]
+margin_right = 1264.0
+size_flags_horizontal = 3
+
+[node name="getter" type="GraphNode" parent="tabs/Vorlage/grid" groups=[
+"getters",
+]]
+editor/display_folded = true
+margin_right = 1264.0
+margin_bottom = 83.0
+hint_tooltip = "Returns the name of the host OS. Possible values are:
+“Android”, “Haiku”, “iOS”, “HTML5”, “OSX”, “Server”, “Windows”, “UWP”, “X11”."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "getter"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Vorlage/grid/getter"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 73.0
+
+[node name="label" type="Label" parent="tabs/Vorlage/grid/getter/hbox"]
+margin_right = 1200.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="function" type="GraphNode" parent="tabs/Vorlage/grid" groups=[
+"functions",
+]]
+editor/display_folded = true
+margin_top = 91.0
+margin_right = 1264.0
+margin_bottom = 194.0
+hint_tooltip = "Returns true if an environment variable exists."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "function"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Vorlage/grid/function"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 93.0
+
+[node name="lineedit" type="LineEdit" parent="tabs/Vorlage/grid/function/hbox"]
+margin_right = 394.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+placeholder_text = "parameter"
+
+[node name="button" type="Button" parent="tabs/Vorlage/grid/function/hbox"]
+margin_left = 402.0
+margin_right = 796.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="label" type="Label" parent="tabs/Vorlage/grid/function/hbox"]
+margin_left = 804.0
+margin_right = 1200.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="setter" type="GraphNode" parent="tabs/Vorlage/grid" groups=[
+"setters",
+]]
+editor/display_folded = true
+margin_top = 202.0
+margin_right = 1264.0
+margin_bottom = 305.0
+hint_tooltip = "Sets the exit code that will be returned by the game."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "setter"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Vorlage/grid/setter"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 93.0
+
+[node name="lineedit" type="LineEdit" parent="tabs/Vorlage/grid/setter/hbox"]
+margin_right = 596.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+placeholder_text = "parameter"
+
+[node name="button" type="Button" parent="tabs/Vorlage/grid/setter/hbox"]
+margin_left = 604.0
+margin_right = 1200.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="System" type="ScrollContainer" parent="tabs"]
+editor/display_folded = true
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 61.0
+margin_right = -8.0
+margin_bottom = -8.0
+scroll_vertical = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="grid" type="GridContainer" parent="tabs/System"]
+margin_right = 1264.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="get_name" type="GraphNode" parent="tabs/System/grid" groups=[
+"getters",
+]]
+editor/display_folded = true
+margin_right = 1240.0
+margin_bottom = 83.0
+hint_tooltip = "Returns the name of the host OS. Possible values are:
+“Android”, “Haiku”, “iOS”, “HTML5”, “OSX”, “Server”, “Windows”, “UWP”, “X11”."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "String get_name ( ) const"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 4 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/System/grid/get_name"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1208.0
+margin_bottom = 73.0
+
+[node name="label" type="Label" parent="tabs/System/grid/get_name/hbox"]
+margin_right = 1176.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="get_model_name" type="GraphNode" parent="tabs/System/grid" groups=[
+"getters",
+]]
+editor/display_folded = true
+margin_top = 91.0
+margin_right = 1240.0
+margin_bottom = 174.0
+hint_tooltip = "Returns the model name of the current device."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "String get_model_name ( ) const"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 5 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/System/grid/get_model_name"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1208.0
+margin_bottom = 73.0
+
+[node name="label" type="Label" parent="tabs/System/grid/get_model_name/hbox"]
+margin_right = 1176.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="get_unique_id" type="GraphNode" parent="tabs/System/grid" groups=[
+"const_getters",
+]]
+editor/display_folded = true
+margin_top = 182.0
+margin_right = 1240.0
+margin_bottom = 265.0
+hint_tooltip = "Returns a string that is unique to the device.
+Currently only works on Android and iOS.
+Returns empty string on other platforms."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "String get_unique_id ( ) const"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 6 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/System/grid/get_unique_id"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1208.0
+margin_bottom = 73.0
+
+[node name="label" type="Label" parent="tabs/System/grid/get_unique_id/hbox"]
+margin_right = 1176.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="has_environment" type="GraphNode" parent="tabs/System/grid" groups=[
+"functions",
+]]
+editor/display_folded = true
+margin_top = 273.0
+margin_right = 1240.0
+margin_bottom = 376.0
+hint_tooltip = "Returns true if an environment variable exists."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "bool has_environment ( String environment ) const"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 7 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/System/grid/has_environment"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1208.0
+margin_bottom = 93.0
+
+[node name="lineedit" type="LineEdit" parent="tabs/System/grid/has_environment/hbox"]
+margin_right = 386.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+placeholder_text = "environment"
+
+[node name="button" type="Button" parent="tabs/System/grid/has_environment/hbox"]
+margin_left = 394.0
+margin_right = 780.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="label" type="Label" parent="tabs/System/grid/has_environment/hbox"]
+margin_left = 788.0
+margin_right = 1176.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="get_environment" type="GraphNode" parent="tabs/System/grid" groups=[
+"functions",
+]]
+editor/display_folded = true
+margin_top = 384.0
+margin_right = 1240.0
+margin_bottom = 487.0
+hint_tooltip = "Returns an environment variable."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "String get_environment ( String environment ) const"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 8 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/System/grid/get_environment"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1208.0
+margin_bottom = 93.0
+
+[node name="lineedit" type="LineEdit" parent="tabs/System/grid/get_environment/hbox"]
+margin_right = 386.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+placeholder_text = "environment"
+
+[node name="button" type="Button" parent="tabs/System/grid/get_environment/hbox"]
+margin_left = 394.0
+margin_right = 780.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="label" type="Label" parent="tabs/System/grid/get_environment/hbox"]
+margin_left = 788.0
+margin_right = 1176.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="has_feature" type="GraphNode" parent="tabs/System/grid" groups=[
+"functions",
+]]
+editor/display_folded = true
+margin_top = 495.0
+margin_right = 1240.0
+margin_bottom = 598.0
+hint_tooltip = "?"
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "bool has_feature ( String tag_name ) const"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 9 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/System/grid/has_feature"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1208.0
+margin_bottom = 93.0
+
+[node name="lineedit" type="LineEdit" parent="tabs/System/grid/has_feature/hbox"]
+margin_right = 386.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+placeholder_text = "tag_name"
+
+[node name="button" type="Button" parent="tabs/System/grid/has_feature/hbox"]
+margin_left = 394.0
+margin_right = 780.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="label" type="Label" parent="tabs/System/grid/has_feature/hbox"]
+margin_left = 788.0
+margin_right = 1176.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="can_draw" type="GraphNode" parent="tabs/System/grid" groups=[
+"getters",
+]]
+editor/display_folded = true
+margin_top = 606.0
+margin_right = 1240.0
+margin_bottom = 689.0
+hint_tooltip = "Returns true if the host OS allows drawing."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "bool can_draw ( ) const"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 10 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/System/grid/can_draw"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1208.0
+margin_bottom = 73.0
+
+[node name="label" type="Label" parent="tabs/System/grid/can_draw/hbox"]
+margin_right = 1176.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="get_cmdline_args" type="GraphNode" parent="tabs/System/grid" groups=[
+"getters",
+]]
+editor/display_folded = true
+margin_top = 697.0
+margin_right = 1240.0
+margin_bottom = 780.0
+hint_tooltip = "Returns the command line arguments passed to the engine."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "PoolStringArray get_cmdline_args ( )"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 11 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/System/grid/get_cmdline_args"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1208.0
+margin_bottom = 73.0
+
+[node name="label" type="Label" parent="tabs/System/grid/get_cmdline_args/hbox"]
+margin_right = 1176.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="get_exit_code" type="GraphNode" parent="tabs/System/grid" groups=[
+"getters",
+]]
+editor/display_folded = true
+margin_top = 788.0
+margin_right = 1240.0
+margin_bottom = 871.0
+hint_tooltip = "?"
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "int get_exit_code ( ) const"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 12 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/System/grid/get_exit_code"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1208.0
+margin_bottom = 73.0
+
+[node name="label" type="Label" parent="tabs/System/grid/get_exit_code/hbox"]
+margin_right = 1176.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="set_exit_code" type="GraphNode" parent="tabs/System/grid" groups=[
+"setters",
+]]
+editor/display_folded = true
+margin_top = 879.0
+margin_right = 1240.0
+margin_bottom = 982.0
+hint_tooltip = "Sets the exit code that will be returned by the game."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "void set_exit_code ( int code )"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 13 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/System/grid/set_exit_code"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1208.0
+margin_bottom = 93.0
+
+[node name="lineedit" type="LineEdit" parent="tabs/System/grid/set_exit_code/hbox"]
+margin_right = 584.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+placeholder_text = "code"
+
+[node name="button" type="Button" parent="tabs/System/grid/set_exit_code/hbox"]
+margin_left = 592.0
+margin_right = 1176.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="Engine" type="ScrollContainer" parent="tabs"]
+editor/display_folded = true
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 61.0
+margin_right = -8.0
+margin_bottom = -8.0
+scroll_horizontal = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="grid" type="GridContainer" parent="tabs/Engine"]
+editor/display_folded = true
+margin_right = 1264.0
+size_flags_horizontal = 3
+
+[node name="get_executable_path" type="GraphNode" parent="tabs/Engine/grid" groups=[
+"getters",
+]]
+editor/display_folded = true
+margin_right = 1264.0
+margin_bottom = 83.0
+hint_tooltip = "Returns the path to the current engine executable."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "String get_executable_path ( ) const"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 14 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Engine/grid/get_executable_path"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 73.0
+
+[node name="label" type="Label" parent="tabs/Engine/grid/get_executable_path/hbox"]
+margin_right = 1200.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="is_debug_build" type="GraphNode" parent="tabs/Engine/grid" groups=[
+"getters",
+]]
+editor/display_folded = true
+margin_top = 91.0
+margin_right = 1264.0
+margin_bottom = 174.0
+hint_tooltip = "Returns true if the build is a debug build.
+Returns true when running in the editor.
+Returns false if the build is a release build."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "bool is_debug_build ( ) const"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 15 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Engine/grid/is_debug_build"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 73.0
+
+[node name="label" type="Label" parent="tabs/Engine/grid/is_debug_build/hbox"]
+margin_right = 1200.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="is_stdout_verbose" type="GraphNode" parent="tabs/Engine/grid" groups=[
+"getters",
+]]
+editor/display_folded = true
+margin_top = 182.0
+margin_right = 1264.0
+margin_bottom = 265.0
+hint_tooltip = "Returns true if the engine was executed with -v (verbose stdout)."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "bool is_stdout_verbose ( ) const"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 16 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Engine/grid/is_stdout_verbose"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 73.0
+
+[node name="label" type="Label" parent="tabs/Engine/grid/is_stdout_verbose/hbox"]
+margin_right = 1200.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="Power" type="ScrollContainer" parent="tabs"]
+editor/display_folded = true
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 61.0
+margin_right = -8.0
+margin_bottom = -8.0
+scroll_horizontal = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="grid" type="GridContainer" parent="tabs/Power"]
+margin_right = 1264.0
+size_flags_horizontal = 3
+
+[node name="get_power_percent_left" type="GraphNode" parent="tabs/Power/grid" groups=[
+"getters",
+]]
+editor/display_folded = true
+margin_right = 1264.0
+margin_bottom = 95.0
+hint_tooltip = "Returns the amount of battery left in the device as a percentage."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "int get_power_percent_left ( )"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 17 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Power/grid/get_power_percent_left"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 85.0
+
+[node name="button" type="Button" parent="tabs/Power/grid/get_power_percent_left/hbox"]
+margin_right = 596.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="label" type="Label" parent="tabs/Power/grid/get_power_percent_left/hbox"]
+margin_left = 604.0
+margin_right = 1200.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="get_power_seconds_left" type="GraphNode" parent="tabs/Power/grid" groups=[
+"getters",
+]]
+editor/display_folded = true
+margin_top = 103.0
+margin_right = 1264.0
+margin_bottom = 198.0
+hint_tooltip = "Returns the time in seconds before the device runs out of battery."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "int get_power_seconds_left ( )"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 18 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Power/grid/get_power_seconds_left"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 85.0
+
+[node name="button" type="Button" parent="tabs/Power/grid/get_power_seconds_left/hbox"]
+margin_right = 596.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="label" type="Label" parent="tabs/Power/grid/get_power_seconds_left/hbox"]
+margin_left = 604.0
+margin_right = 1200.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="get_power_state" type="GraphNode" parent="tabs/Power/grid" groups=[
+"getters",
+]]
+editor/display_folded = true
+margin_top = 206.0
+margin_right = 1264.0
+margin_bottom = 301.0
+hint_tooltip = "Returns the current state of the device regarding battery and power.
+See POWERSTATE\\_\\* constants."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "int get_power_state ( )"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 19 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Power/grid/get_power_state"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 85.0
+
+[node name="button" type="Button" parent="tabs/Power/grid/get_power_state/hbox"]
+margin_right = 596.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="label" type="Label" parent="tabs/Power/grid/get_power_state/hbox"]
+margin_left = 604.0
+margin_right = 1200.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="Screen" type="ScrollContainer" parent="tabs"]
+editor/display_folded = true
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 61.0
+margin_right = -8.0
+margin_bottom = -8.0
+scroll_vertical = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="grid" type="GridContainer" parent="tabs/Screen"]
+editor/display_folded = true
+margin_right = 1264.0
+size_flags_horizontal = 3
+
+[node name="get_screen_count" type="GraphNode" parent="tabs/Screen/grid" groups=[
+"getters",
+]]
+editor/display_folded = true
+margin_right = 1240.0
+margin_bottom = 83.0
+hint_tooltip = "Returns the number of displays attached to the host machine."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "int get_screen_count ( ) const"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 20 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Screen/grid/get_screen_count"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1208.0
+margin_bottom = 73.0
+
+[node name="label" type="Label" parent="tabs/Screen/grid/get_screen_count/hbox"]
+margin_right = 1176.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="get_current_screen" type="GraphNode" parent="tabs/Screen/grid" groups=[
+"getters",
+]]
+editor/display_folded = true
+margin_top = 91.0
+margin_right = 1240.0
+margin_bottom = 174.0
+hint_tooltip = "Returns the current screen index (0 padded)."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "int get_current_screen ( ) const"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 21 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Screen/grid/get_current_screen"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1208.0
+margin_bottom = 73.0
+
+[node name="label" type="Label" parent="tabs/Screen/grid/get_current_screen/hbox"]
+margin_right = 1176.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="set_current_screen" type="GraphNode" parent="tabs/Screen/grid" groups=[
+"setters",
+]]
+editor/display_folded = true
+margin_top = 182.0
+margin_right = 1240.0
+margin_bottom = 285.0
+hint_tooltip = "Sets the current screen by index."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "void set_current_screen ( int screen )"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 22 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Screen/grid/set_current_screen"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1208.0
+margin_bottom = 93.0
+
+[node name="lineedit" type="LineEdit" parent="tabs/Screen/grid/set_current_screen/hbox"]
+margin_right = 584.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+placeholder_text = "screen"
+
+[node name="button" type="Button" parent="tabs/Screen/grid/set_current_screen/hbox"]
+margin_left = 592.0
+margin_right = 1176.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="get_screen_size" type="GraphNode" parent="tabs/Screen/grid" groups=[
+"functions",
+]]
+editor/display_folded = true
+margin_top = 293.0
+margin_right = 1240.0
+margin_bottom = 396.0
+hint_tooltip = "Returns the dimensions in pixels of the specified screen."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "Vector2 get_screen_size ( int screen=-1 ) const"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 23 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Screen/grid/get_screen_size"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1208.0
+margin_bottom = 93.0
+
+[node name="lineedit" type="LineEdit" parent="tabs/Screen/grid/get_screen_size/hbox"]
+margin_right = 386.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+placeholder_text = "screen"
+
+[node name="button" type="Button" parent="tabs/Screen/grid/get_screen_size/hbox"]
+margin_left = 394.0
+margin_right = 780.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="label" type="Label" parent="tabs/Screen/grid/get_screen_size/hbox"]
+margin_left = 788.0
+margin_right = 1176.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="get_screen_dpi" type="GraphNode" parent="tabs/Screen/grid" groups=[
+"functions",
+]]
+editor/display_folded = true
+margin_top = 404.0
+margin_right = 1240.0
+margin_bottom = 507.0
+hint_tooltip = "Returns the dots per inch density of the specified screen.
+On Android Devices, the actual screen densities 
+are grouped into six generalized densities:
+ldpi - 120 dpi
+mdpi - 160 dpi
+hdpi - 240 dpi
+xhdpi - 320 dpi
+xxhdpi - 480 dpi
+xxxhdpi - 640 dpi"
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "int get_screen_dpi ( int screen=-1 ) const"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 24 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Screen/grid/get_screen_dpi"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1208.0
+margin_bottom = 93.0
+
+[node name="lineedit" type="LineEdit" parent="tabs/Screen/grid/get_screen_dpi/hbox"]
+margin_right = 386.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+placeholder_text = "screen"
+
+[node name="button" type="Button" parent="tabs/Screen/grid/get_screen_dpi/hbox"]
+margin_left = 394.0
+margin_right = 780.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="label" type="Label" parent="tabs/Screen/grid/get_screen_dpi/hbox"]
+margin_left = 788.0
+margin_right = 1176.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="get_screen_orientation" type="GraphNode" parent="tabs/Screen/grid" groups=[
+"getters",
+]]
+editor/display_folded = true
+margin_top = 515.0
+margin_right = 1240.0
+margin_bottom = 598.0
+hint_tooltip = "Returns the current screen orientation,
+the return value will be one of the
+SCREEN_ORIENTATION constants in this class."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "int get_screen_orientation ( ) const"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 20 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Screen/grid/get_screen_orientation"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1208.0
+margin_bottom = 73.0
+
+[node name="label" type="Label" parent="tabs/Screen/grid/get_screen_orientation/hbox"]
+margin_right = 1176.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="set_screen_orientation" type="GraphNode" parent="tabs/Screen/grid" groups=[
+"setters",
+]]
+editor/display_folded = true
+margin_top = 606.0
+margin_right = 1240.0
+margin_bottom = 709.0
+hint_tooltip = "Sets the current screen orientation,
+the argument value must be one of the
+SCREEN_ORIENTATION constants in this class."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "void set_screen_orientation ( int orientation )"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 25 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Screen/grid/set_screen_orientation"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1208.0
+margin_bottom = 93.0
+
+[node name="lineedit" type="LineEdit" parent="tabs/Screen/grid/set_screen_orientation/hbox"]
+margin_right = 584.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+placeholder_text = "orientation"
+
+[node name="button" type="Button" parent="tabs/Screen/grid/set_screen_orientation/hbox"]
+margin_left = 592.0
+margin_right = 1176.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="get_screen_position" type="GraphNode" parent="tabs/Screen/grid" groups=[
+"functions",
+]]
+editor/display_folded = true
+margin_top = 717.0
+margin_right = 1240.0
+margin_bottom = 820.0
+hint_tooltip = "Returns the position of the specified screen by index.
+If no screen index is provided, the current screen will be used."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "Vector2 get_screen_position ( int screen=-1 ) const"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 26 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Screen/grid/get_screen_position"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1208.0
+margin_bottom = 93.0
+
+[node name="lineedit" type="LineEdit" parent="tabs/Screen/grid/get_screen_position/hbox"]
+margin_right = 386.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+placeholder_text = "screen"
+
+[node name="button" type="Button" parent="tabs/Screen/grid/get_screen_position/hbox"]
+margin_left = 394.0
+margin_right = 780.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="label" type="Label" parent="tabs/Screen/grid/get_screen_position/hbox"]
+margin_left = 788.0
+margin_right = 1176.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="has_touchscreen_ui_hint" type="GraphNode" parent="tabs/Screen/grid" groups=[
+"getters",
+]]
+editor/display_folded = true
+margin_top = 828.0
+margin_right = 1240.0
+margin_bottom = 911.0
+hint_tooltip = "Returns true if the device has a touchscreen or emulates one."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "bool has_touchscreen_ui_hint ( ) const"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 27 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Screen/grid/has_touchscreen_ui_hint"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1208.0
+margin_bottom = 73.0
+
+[node name="label" type="Label" parent="tabs/Screen/grid/has_touchscreen_ui_hint/hbox"]
+margin_right = 1176.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="is_keep_screen_on" type="GraphNode" parent="tabs/Screen/grid" groups=[
+"getters",
+]]
+editor/display_folded = true
+margin_top = 919.0
+margin_right = 1240.0
+margin_bottom = 1002.0
+hint_tooltip = "Returns true if the screen is being kept on."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "bool is_keep_screen_on ( ) const"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 28 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Screen/grid/is_keep_screen_on"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1208.0
+margin_bottom = 73.0
+
+[node name="label" type="Label" parent="tabs/Screen/grid/is_keep_screen_on/hbox"]
+margin_right = 1176.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="set_keep_screen_on" type="GraphNode" parent="tabs/Screen/grid" groups=[
+"setters",
+]]
+editor/display_folded = true
+margin_top = 1010.0
+margin_right = 1240.0
+margin_bottom = 1105.0
+hint_tooltip = "Sets keep screen on if true,
+or goes to sleep by device setting if false.
+(for Android/iOS)"
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "void set_keep_screen_on ( bool enabled )"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 29 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Screen/grid/set_keep_screen_on"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1208.0
+margin_bottom = 85.0
+
+[node name="option" type="OptionButton" parent="tabs/Screen/grid/set_keep_screen_on/hbox"]
+margin_right = 584.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+
+[node name="button" type="Button" parent="tabs/Screen/grid/set_keep_screen_on/hbox"]
+margin_left = 592.0
+margin_right = 1176.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="is_vsync_enabled" type="GraphNode" parent="tabs/Screen/grid" groups=[
+"getters",
+]]
+editor/display_folded = true
+margin_top = 1113.0
+margin_right = 1240.0
+margin_bottom = 1196.0
+hint_tooltip = "Returns true if synchronizing the framerate to the monitor’s refresh rate is enabled.
+"
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "bool is_vsync_enabled ( ) const"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 30 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Screen/grid/is_vsync_enabled"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1208.0
+margin_bottom = 73.0
+
+[node name="label" type="Label" parent="tabs/Screen/grid/is_vsync_enabled/hbox"]
+margin_right = 1176.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="set_use_vsync" type="GraphNode" parent="tabs/Screen/grid" groups=[
+"setters",
+]]
+editor/display_folded = true
+margin_top = 1204.0
+margin_right = 1240.0
+margin_bottom = 1299.0
+hint_tooltip = "If true the framerate will synchronize to the monitor’s refresh rate."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "void set_use_vsync ( bool enable )"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 31 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Screen/grid/set_use_vsync"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1208.0
+margin_bottom = 85.0
+
+[node name="option" type="OptionButton" parent="tabs/Screen/grid/set_use_vsync/hbox"]
+margin_right = 584.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+
+[node name="button" type="Button" parent="tabs/Screen/grid/set_use_vsync/hbox"]
+margin_left = 592.0
+margin_right = 1176.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="Window" type="ScrollContainer" parent="tabs"]
+editor/display_folded = true
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 61.0
+margin_right = -8.0
+margin_bottom = -8.0
+scroll_vertical = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="grid" type="GridContainer" parent="tabs/Window"]
+margin_right = 1264.0
+size_flags_horizontal = 3
+
+[node name="get_borderless_window" type="GraphNode" parent="tabs/Window/grid" groups=[
+"getters",
+]]
+editor/display_folded = true
+margin_right = 1240.0
+margin_bottom = 83.0
+hint_tooltip = "Returns true if the current window is borderless."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "bool get_borderless_window ( ) const"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 32 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Window/grid/get_borderless_window"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1208.0
+margin_bottom = 73.0
+
+[node name="label" type="Label" parent="tabs/Window/grid/get_borderless_window/hbox"]
+margin_right = 1176.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="set_borderless_window" type="GraphNode" parent="tabs/Window/grid" groups=[
+"setters",
+]]
+editor/display_folded = true
+margin_top = 91.0
+margin_right = 1240.0
+margin_bottom = 186.0
+hint_tooltip = "Removes the window frame."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "void set_borderless_window ( bool borderless )"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 33 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Window/grid/set_borderless_window"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1208.0
+margin_bottom = 85.0
+
+[node name="option" type="OptionButton" parent="tabs/Window/grid/set_borderless_window/hbox"]
+margin_right = 584.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+
+[node name="button" type="Button" parent="tabs/Window/grid/set_borderless_window/hbox"]
+margin_left = 592.0
+margin_right = 1176.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="get_window_position" type="GraphNode" parent="tabs/Window/grid" groups=[
+"getters",
+]]
+editor/display_folded = true
+margin_top = 194.0
+margin_right = 1240.0
+margin_bottom = 277.0
+hint_tooltip = "Returns the window position relative to the screen, the origin is the top left corner, +Y axis goes to the bottom and +X axis goes to the right."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "Vector2 get_window_position ( ) const"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 34 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Window/grid/get_window_position"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1208.0
+margin_bottom = 73.0
+
+[node name="label" type="Label" parent="tabs/Window/grid/get_window_position/hbox"]
+margin_right = 1176.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="set_window_position" type="GraphNode" parent="tabs/Window/grid" groups=[
+"setters",
+]]
+editor/display_folded = true
+margin_top = 285.0
+margin_right = 1240.0
+margin_bottom = 388.0
+hint_tooltip = "Sets the position of the window to the specified position (this function could be restricted by the window manager, meaning that there could be some unreachable areas of the screen)."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "void set_window_position ( Vector2 position )"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 35 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Window/grid/set_window_position"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1208.0
+margin_bottom = 93.0
+
+[node name="lineedit_x" type="LineEdit" parent="tabs/Window/grid/set_window_position/hbox"]
+margin_right = 386.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+placeholder_text = "position.x"
+
+[node name="lineedit_y" type="LineEdit" parent="tabs/Window/grid/set_window_position/hbox"]
+margin_left = 394.0
+margin_right = 780.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+placeholder_text = "position.y"
+
+[node name="button" type="Button" parent="tabs/Window/grid/set_window_position/hbox"]
+margin_left = 788.0
+margin_right = 1176.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="get_window_size" type="GraphNode" parent="tabs/Window/grid" groups=[
+"getters",
+]]
+editor/display_folded = true
+margin_top = 396.0
+margin_right = 1240.0
+margin_bottom = 479.0
+hint_tooltip = "Returns the size of the window (without counting window manager decorations)."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "Vector2 get_window_size ( ) const"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 36 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Window/grid/get_window_size"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1208.0
+margin_bottom = 73.0
+
+[node name="label" type="Label" parent="tabs/Window/grid/get_window_size/hbox"]
+margin_right = 1176.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="set_window_size" type="GraphNode" parent="tabs/Window/grid" groups=[
+"setters",
+]]
+editor/display_folded = true
+margin_top = 487.0
+margin_right = 1240.0
+margin_bottom = 590.0
+hint_tooltip = "Sets the window size to the specified size."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "void set_window_size ( Vector2 size )"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 37 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Window/grid/set_window_size"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1208.0
+margin_bottom = 93.0
+
+[node name="lineedit_x" type="LineEdit" parent="tabs/Window/grid/set_window_size/hbox"]
+margin_right = 386.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+placeholder_text = "size.x"
+
+[node name="lineedit_y" type="LineEdit" parent="tabs/Window/grid/set_window_size/hbox"]
+margin_left = 394.0
+margin_right = 780.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+placeholder_text = "size.y"
+
+[node name="button" type="Button" parent="tabs/Window/grid/set_window_size/hbox"]
+margin_left = 788.0
+margin_right = 1176.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="is_window_fullscreen" type="GraphNode" parent="tabs/Window/grid" groups=[
+"getters",
+]]
+editor/display_folded = true
+margin_top = 598.0
+margin_right = 1240.0
+margin_bottom = 681.0
+hint_tooltip = "Returns true if the window is in fullscreen mode."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "bool is_window_fullscreen ( ) const"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 38 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Window/grid/is_window_fullscreen"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1208.0
+margin_bottom = 73.0
+
+[node name="label" type="Label" parent="tabs/Window/grid/is_window_fullscreen/hbox"]
+margin_right = 1176.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="set_window_fullscreen" type="GraphNode" parent="tabs/Window/grid" groups=[
+"setters",
+]]
+editor/display_folded = true
+margin_top = 689.0
+margin_right = 1240.0
+margin_bottom = 784.0
+hint_tooltip = "Sets window fullscreen mode to the enabled argument, enabled is a toggle for the fullscreen mode, calling the function with enabled true when the screen is not on fullscreen mode will cause the screen to go to fullscreen mode, calling the function with enabled false when the screen is in fullscreen mode will cause the window to exit the fullscreen mode."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "void set_window_fullscreen ( bool enabled )"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 39 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Window/grid/set_window_fullscreen"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1208.0
+margin_bottom = 85.0
+
+[node name="option" type="OptionButton" parent="tabs/Window/grid/set_window_fullscreen/hbox"]
+margin_right = 584.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+
+[node name="button" type="Button" parent="tabs/Window/grid/set_window_fullscreen/hbox"]
+margin_left = 592.0
+margin_right = 1176.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="is_window_maximized" type="GraphNode" parent="tabs/Window/grid" groups=[
+"getters",
+]]
+editor/display_folded = true
+margin_top = 792.0
+margin_right = 1240.0
+margin_bottom = 875.0
+hint_tooltip = "Returns true if the window is maximized."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "bool is_window_maximized ( ) const"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 40 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Window/grid/is_window_maximized"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1208.0
+margin_bottom = 73.0
+
+[node name="label" type="Label" parent="tabs/Window/grid/is_window_maximized/hbox"]
+margin_right = 1176.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="set_window_maximized" type="GraphNode" parent="tabs/Window/grid" groups=[
+"setters",
+]]
+editor/display_folded = true
+margin_top = 883.0
+margin_right = 1240.0
+margin_bottom = 978.0
+hint_tooltip = "Set true to maximize the window."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "void set_window_maximized ( bool enabled )"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 41 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Window/grid/set_window_maximized"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1208.0
+margin_bottom = 85.0
+
+[node name="option" type="OptionButton" parent="tabs/Window/grid/set_window_maximized/hbox"]
+margin_right = 584.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+
+[node name="button" type="Button" parent="tabs/Window/grid/set_window_maximized/hbox"]
+margin_left = 592.0
+margin_right = 1176.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="is_window_minimized" type="GraphNode" parent="tabs/Window/grid" groups=[
+"getters",
+]]
+editor/display_folded = true
+margin_top = 986.0
+margin_right = 1240.0
+margin_bottom = 1069.0
+hint_tooltip = "Returns true if the window is minimized."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "bool is_window_minimized ( ) const"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 42 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Window/grid/is_window_minimized"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1208.0
+margin_bottom = 73.0
+
+[node name="label" type="Label" parent="tabs/Window/grid/is_window_minimized/hbox"]
+margin_right = 1176.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="set_window_minimized" type="GraphNode" parent="tabs/Window/grid" groups=[
+"setters",
+]]
+editor/display_folded = true
+margin_top = 1077.0
+margin_right = 1240.0
+margin_bottom = 1172.0
+hint_tooltip = "Set true to minimize the window."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "void set_window_minimized ( bool enabled )"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 43 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Window/grid/set_window_minimized"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1208.0
+margin_bottom = 85.0
+
+[node name="option" type="OptionButton" parent="tabs/Window/grid/set_window_minimized/hbox"]
+margin_right = 584.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+
+[node name="button" type="Button" parent="tabs/Window/grid/set_window_minimized/hbox"]
+margin_left = 592.0
+margin_right = 1176.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="is_window_resizable" type="GraphNode" parent="tabs/Window/grid" groups=[
+"getters",
+]]
+editor/display_folded = true
+margin_top = 1180.0
+margin_right = 1240.0
+margin_bottom = 1263.0
+hint_tooltip = "Returns true if the window is resizable."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "bool is_window_resizable ( ) const"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 44 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Window/grid/is_window_resizable"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1208.0
+margin_bottom = 73.0
+
+[node name="label" type="Label" parent="tabs/Window/grid/is_window_resizable/hbox"]
+margin_right = 1176.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="set_window_resizable" type="GraphNode" parent="tabs/Window/grid" groups=[
+"setters",
+]]
+editor/display_folded = true
+margin_top = 1271.0
+margin_right = 1240.0
+margin_bottom = 1366.0
+hint_tooltip = "Sets the window resizable state, if the window is not resizable it will preserve the dimensions specified in the project settings."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "void set_window_resizable ( bool enabled )"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 45 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Window/grid/set_window_resizable"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1208.0
+margin_bottom = 85.0
+
+[node name="option" type="OptionButton" parent="tabs/Window/grid/set_window_resizable/hbox"]
+margin_right = 584.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+
+[node name="button" type="Button" parent="tabs/Window/grid/set_window_resizable/hbox"]
+margin_left = 592.0
+margin_right = 1176.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="set_window_title" type="GraphNode" parent="tabs/Window/grid" groups=[
+"setters",
+]]
+editor/display_folded = true
+margin_top = 1374.0
+margin_right = 1240.0
+margin_bottom = 1477.0
+hint_tooltip = "Sets the window title to the specified string."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "void set_window_title ( String title )"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 46 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Window/grid/set_window_title"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1208.0
+margin_bottom = 93.0
+
+[node name="lineedit" type="LineEdit" parent="tabs/Window/grid/set_window_title/hbox"]
+margin_right = 584.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+placeholder_text = "title"
+
+[node name="button" type="Button" parent="tabs/Window/grid/set_window_title/hbox"]
+margin_left = 592.0
+margin_right = 1176.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="Time" type="ScrollContainer" parent="tabs"]
+editor/display_folded = true
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 61.0
+margin_right = -8.0
+margin_bottom = -8.0
+scroll_vertical = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="grid" type="GridContainer" parent="tabs/Time"]
+margin_right = 1264.0
+size_flags_horizontal = 3
+
+[node name="get_system_time_secs" type="GraphNode" parent="tabs/Time/grid" groups=[
+"getters",
+]]
+editor/display_folded = true
+margin_right = 1240.0
+margin_bottom = 83.0
+hint_tooltip = "Returns the name of the host OS. Possible values are:
+“Android”, “Haiku”, “iOS”, “HTML5”, “OSX”, “Server”, “Windows”, “UWP”, “X11”."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "getter"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Time/grid/get_system_time_secs"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1208.0
+margin_bottom = 73.0
+
+[node name="label" type="Label" parent="tabs/Time/grid/get_system_time_secs/hbox"]
+margin_right = 1176.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="get_ticks_msec" type="GraphNode" parent="tabs/Time/grid" groups=[
+"getters",
+]]
+editor/display_folded = true
+margin_top = 91.0
+margin_right = 1240.0
+margin_bottom = 174.0
+hint_tooltip = "Returns the name of the host OS. Possible values are:
+“Android”, “Haiku”, “iOS”, “HTML5”, “OSX”, “Server”, “Windows”, “UWP”, “X11”."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "getter"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Time/grid/get_ticks_msec"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1208.0
+margin_bottom = 73.0
+
+[node name="label" type="Label" parent="tabs/Time/grid/get_ticks_msec/hbox"]
+margin_right = 1176.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="get_time" type="GraphNode" parent="tabs/Time/grid" groups=[
+"functions",
+]]
+editor/display_folded = true
+margin_top = 182.0
+margin_right = 1240.0
+margin_bottom = 285.0
+hint_tooltip = "Returns true if an environment variable exists."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "function"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Time/grid/get_time"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1208.0
+margin_bottom = 93.0
+
+[node name="lineedit" type="LineEdit" parent="tabs/Time/grid/get_time/hbox"]
+margin_right = 386.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+placeholder_text = "parameter"
+
+[node name="button" type="Button" parent="tabs/Time/grid/get_time/hbox"]
+margin_left = 394.0
+margin_right = 780.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="label" type="Label" parent="tabs/Time/grid/get_time/hbox"]
+margin_left = 788.0
+margin_right = 1176.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="get_time_zone_info" type="GraphNode" parent="tabs/Time/grid" groups=[
+"getters",
+]]
+editor/display_folded = true
+margin_top = 293.0
+margin_right = 1240.0
+margin_bottom = 376.0
+hint_tooltip = "Returns the name of the host OS. Possible values are:
+“Android”, “Haiku”, “iOS”, “HTML5”, “OSX”, “Server”, “Windows”, “UWP”, “X11”."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "getter"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Time/grid/get_time_zone_info"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1208.0
+margin_bottom = 73.0
+
+[node name="label" type="Label" parent="tabs/Time/grid/get_time_zone_info/hbox"]
+margin_right = 1176.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="get_unix_time" type="GraphNode" parent="tabs/Time/grid" groups=[
+"getters",
+]]
+editor/display_folded = true
+margin_top = 384.0
+margin_right = 1240.0
+margin_bottom = 467.0
+hint_tooltip = "Returns the name of the host OS. Possible values are:
+“Android”, “Haiku”, “iOS”, “HTML5”, “OSX”, “Server”, “Windows”, “UWP”, “X11”."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "getter"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Time/grid/get_unix_time"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1208.0
+margin_bottom = 73.0
+
+[node name="label" type="Label" parent="tabs/Time/grid/get_unix_time/hbox"]
+margin_right = 1176.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="get_unix_time_from_datetime" type="GraphNode" parent="tabs/Time/grid" groups=[
+"functions",
+]]
+editor/display_folded = true
+margin_top = 475.0
+margin_right = 1240.0
+margin_bottom = 578.0
+hint_tooltip = "Returns true if an environment variable exists."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "function"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Time/grid/get_unix_time_from_datetime"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1208.0
+margin_bottom = 93.0
+
+[node name="lineedit" type="LineEdit" parent="tabs/Time/grid/get_unix_time_from_datetime/hbox"]
+margin_right = 386.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+placeholder_text = "parameter"
+
+[node name="button" type="Button" parent="tabs/Time/grid/get_unix_time_from_datetime/hbox"]
+margin_left = 394.0
+margin_right = 780.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="label" type="Label" parent="tabs/Time/grid/get_unix_time_from_datetime/hbox"]
+margin_left = 788.0
+margin_right = 1176.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="get_date" type="GraphNode" parent="tabs/Time/grid" groups=[
+"functions",
+]]
+editor/display_folded = true
+margin_top = 586.0
+margin_right = 1240.0
+margin_bottom = 689.0
+hint_tooltip = "Returns true if an environment variable exists."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "function"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Time/grid/get_date"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1208.0
+margin_bottom = 93.0
+
+[node name="lineedit" type="LineEdit" parent="tabs/Time/grid/get_date/hbox"]
+margin_right = 386.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+placeholder_text = "parameter"
+
+[node name="button" type="Button" parent="tabs/Time/grid/get_date/hbox"]
+margin_left = 394.0
+margin_right = 780.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="label" type="Label" parent="tabs/Time/grid/get_date/hbox"]
+margin_left = 788.0
+margin_right = 1176.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="get_datetime" type="GraphNode" parent="tabs/Time/grid" groups=[
+"functions",
+]]
+editor/display_folded = true
+margin_top = 697.0
+margin_right = 1240.0
+margin_bottom = 800.0
+hint_tooltip = "Returns true if an environment variable exists."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "function"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Time/grid/get_datetime"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1208.0
+margin_bottom = 93.0
+
+[node name="lineedit" type="LineEdit" parent="tabs/Time/grid/get_datetime/hbox"]
+margin_right = 386.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+placeholder_text = "parameter"
+
+[node name="button" type="Button" parent="tabs/Time/grid/get_datetime/hbox"]
+margin_left = 394.0
+margin_right = 780.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="label" type="Label" parent="tabs/Time/grid/get_datetime/hbox"]
+margin_left = 788.0
+margin_right = 1176.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="get_datetime_from_unix_time" type="GraphNode" parent="tabs/Time/grid" groups=[
+"functions",
+]]
+editor/display_folded = true
+margin_top = 808.0
+margin_right = 1240.0
+margin_bottom = 911.0
+hint_tooltip = "Returns true if an environment variable exists."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "function"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Time/grid/get_datetime_from_unix_time"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1208.0
+margin_bottom = 93.0
+
+[node name="lineedit" type="LineEdit" parent="tabs/Time/grid/get_datetime_from_unix_time/hbox"]
+margin_right = 386.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+placeholder_text = "parameter"
+
+[node name="button" type="Button" parent="tabs/Time/grid/get_datetime_from_unix_time/hbox"]
+margin_left = 394.0
+margin_right = 780.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="label" type="Label" parent="tabs/Time/grid/get_datetime_from_unix_time/hbox"]
+margin_left = 788.0
+margin_right = 1176.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="Localisation" type="ScrollContainer" parent="tabs"]
+editor/display_folded = true
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 61.0
+margin_right = -8.0
+margin_bottom = -8.0
+scroll_vertical = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="grid" type="GridContainer" parent="tabs/Localisation"]
+margin_right = 1264.0
+size_flags_horizontal = 3
+
+[node name="get_locale" type="GraphNode" parent="tabs/Localisation/grid" groups=[
+"getters",
+]]
+editor/display_folded = true
+margin_right = 1264.0
+margin_bottom = 83.0
+hint_tooltip = "Returns the name of the host OS. Possible values are:
+“Android”, “Haiku”, “iOS”, “HTML5”, “OSX”, “Server”, “Windows”, “UWP”, “X11”."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "getter"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Localisation/grid/get_locale"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 73.0
+
+[node name="label" type="Label" parent="tabs/Localisation/grid/get_locale/hbox"]
+margin_right = 1200.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="get_latin_keyboard_variant" type="GraphNode" parent="tabs/Localisation/grid" groups=[
+"getters",
+]]
+editor/display_folded = true
+margin_top = 91.0
+margin_right = 1264.0
+margin_bottom = 174.0
+hint_tooltip = "Returns the name of the host OS. Possible values are:
+“Android”, “Haiku”, “iOS”, “HTML5”, “OSX”, “Server”, “Windows”, “UWP”, “X11”."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "getter"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Localisation/grid/get_latin_keyboard_variant"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 73.0
+
+[node name="label" type="Label" parent="tabs/Localisation/grid/get_latin_keyboard_variant/hbox"]
+margin_right = 1200.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="find_scancode_from_string" type="GraphNode" parent="tabs/Localisation/grid" groups=[
+"functions",
+]]
+editor/display_folded = true
+margin_top = 182.0
+margin_right = 1264.0
+margin_bottom = 285.0
+hint_tooltip = "Returns true if an environment variable exists."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "function"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Localisation/grid/find_scancode_from_string"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 93.0
+
+[node name="lineedit" type="LineEdit" parent="tabs/Localisation/grid/find_scancode_from_string/hbox"]
+margin_right = 394.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+placeholder_text = "parameter"
+
+[node name="button" type="Button" parent="tabs/Localisation/grid/find_scancode_from_string/hbox"]
+margin_left = 402.0
+margin_right = 796.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="label" type="Label" parent="tabs/Localisation/grid/find_scancode_from_string/hbox"]
+margin_left = 804.0
+margin_right = 1200.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="get_scancode_string" type="GraphNode" parent="tabs/Localisation/grid" groups=[
+"functions",
+]]
+editor/display_folded = true
+margin_top = 293.0
+margin_right = 1264.0
+margin_bottom = 396.0
+hint_tooltip = "Returns true if an environment variable exists."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "function"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Localisation/grid/get_scancode_string"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 93.0
+
+[node name="lineedit" type="LineEdit" parent="tabs/Localisation/grid/get_scancode_string/hbox"]
+margin_right = 394.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+placeholder_text = "parameter"
+
+[node name="button" type="Button" parent="tabs/Localisation/grid/get_scancode_string/hbox"]
+margin_left = 402.0
+margin_right = 796.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="label" type="Label" parent="tabs/Localisation/grid/get_scancode_string/hbox"]
+margin_left = 804.0
+margin_right = 1200.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="is_scancode_unicode" type="GraphNode" parent="tabs/Localisation/grid" groups=[
+"functions",
+]]
+editor/display_folded = true
+margin_top = 404.0
+margin_right = 1264.0
+margin_bottom = 507.0
+hint_tooltip = "Returns true if an environment variable exists."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "function"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Localisation/grid/is_scancode_unicode"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 93.0
+
+[node name="lineedit" type="LineEdit" parent="tabs/Localisation/grid/is_scancode_unicode/hbox"]
+margin_right = 394.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+placeholder_text = "parameter"
+
+[node name="button" type="Button" parent="tabs/Localisation/grid/is_scancode_unicode/hbox"]
+margin_left = 402.0
+margin_right = 796.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="label" type="Label" parent="tabs/Localisation/grid/is_scancode_unicode/hbox"]
+margin_left = 804.0
+margin_right = 1200.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="Keyboard" type="ScrollContainer" parent="tabs"]
+editor/display_folded = true
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 61.0
+margin_right = -8.0
+margin_bottom = -8.0
+scroll_vertical = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="grid" type="GridContainer" parent="tabs/Keyboard"]
+margin_right = 1264.0
+size_flags_horizontal = 3
+
+[node name="has_virtual_keyboard" type="GraphNode" parent="tabs/Keyboard/grid" groups=[
+"getters",
+]]
+editor/display_folded = true
+margin_right = 1264.0
+margin_bottom = 83.0
+hint_tooltip = "Returns the name of the host OS. Possible values are:
+“Android”, “Haiku”, “iOS”, “HTML5”, “OSX”, “Server”, “Windows”, “UWP”, “X11”."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "getter"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Keyboard/grid/has_virtual_keyboard"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 73.0
+
+[node name="label" type="Label" parent="tabs/Keyboard/grid/has_virtual_keyboard/hbox"]
+margin_right = 1200.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="show_virtual_keyboard" type="GraphNode" parent="tabs/Keyboard/grid" groups=[
+"functions",
+]]
+editor/display_folded = true
+margin_top = 91.0
+margin_right = 1264.0
+margin_bottom = 194.0
+hint_tooltip = "Returns true if an environment variable exists."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "function"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Keyboard/grid/show_virtual_keyboard"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 93.0
+
+[node name="lineedit" type="LineEdit" parent="tabs/Keyboard/grid/show_virtual_keyboard/hbox"]
+margin_right = 394.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+placeholder_text = "parameter"
+
+[node name="button" type="Button" parent="tabs/Keyboard/grid/show_virtual_keyboard/hbox"]
+margin_left = 402.0
+margin_right = 796.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="label" type="Label" parent="tabs/Keyboard/grid/show_virtual_keyboard/hbox"]
+margin_left = 804.0
+margin_right = 1200.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="hide_virtual_keyboard" type="GraphNode" parent="tabs/Keyboard/grid" groups=[
+"functions",
+]]
+editor/display_folded = true
+margin_top = 91.0
+margin_right = 1264.0
+margin_bottom = 194.0
+hint_tooltip = "Returns true if an environment variable exists."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "function"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Keyboard/grid/hide_virtual_keyboard"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 93.0
+
+[node name="lineedit" type="LineEdit" parent="tabs/Keyboard/grid/hide_virtual_keyboard/hbox"]
+margin_right = 394.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+placeholder_text = "parameter"
+
+[node name="button" type="Button" parent="tabs/Keyboard/grid/hide_virtual_keyboard/hbox"]
+margin_left = 402.0
+margin_right = 796.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="label" type="Label" parent="tabs/Keyboard/grid/hide_virtual_keyboard/hbox"]
+margin_left = 804.0
+margin_right = 1200.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="get_virtual_keyboard_height" type="GraphNode" parent="tabs/Keyboard/grid" groups=[
+"getters",
+]]
+editor/display_folded = true
+margin_right = 1264.0
+margin_bottom = 83.0
+hint_tooltip = "Returns the name of the host OS. Possible values are:
+“Android”, “Haiku”, “iOS”, “HTML5”, “OSX”, “Server”, “Windows”, “UWP”, “X11”."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "getter"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Keyboard/grid/get_virtual_keyboard_height"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 73.0
+
+[node name="label" type="Label" parent="tabs/Keyboard/grid/get_virtual_keyboard_height/hbox"]
+margin_right = 1200.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="get_clipboard" type="GraphNode" parent="tabs/Keyboard/grid" groups=[
+"getters",
+]]
+editor/display_folded = true
+margin_right = 1264.0
+margin_bottom = 83.0
+hint_tooltip = "Returns the name of the host OS. Possible values are:
+“Android”, “Haiku”, “iOS”, “HTML5”, “OSX”, “Server”, “Windows”, “UWP”, “X11”."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "getter"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Keyboard/grid/get_clipboard"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 73.0
+
+[node name="label" type="Label" parent="tabs/Keyboard/grid/get_clipboard/hbox"]
+margin_right = 1200.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="set_clipboard" type="GraphNode" parent="tabs/Keyboard/grid" groups=[
+"setters",
+]]
+editor/display_folded = true
+margin_top = 202.0
+margin_right = 1264.0
+margin_bottom = 305.0
+hint_tooltip = "Sets the exit code that will be returned by the game."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "setter"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Keyboard/grid/set_clipboard"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 93.0
+
+[node name="lineedit" type="LineEdit" parent="tabs/Keyboard/grid/set_clipboard/hbox"]
+margin_right = 596.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+placeholder_text = "parameter"
+
+[node name="button" type="Button" parent="tabs/Keyboard/grid/set_clipboard/hbox"]
+margin_left = 604.0
+margin_right = 1200.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="Filesystem" type="ScrollContainer" parent="tabs"]
+editor/display_folded = true
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 61.0
+margin_right = -8.0
+margin_bottom = -8.0
+scroll_vertical = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="grid" type="GridContainer" parent="tabs/Filesystem"]
+margin_right = 1264.0
+size_flags_horizontal = 3
+
+[node name="get_user_data_dir" type="GraphNode" parent="tabs/Filesystem/grid" groups=[
+"getters",
+]]
+editor/display_folded = true
+margin_right = 1264.0
+margin_bottom = 83.0
+hint_tooltip = "Returns the name of the host OS. Possible values are:
+“Android”, “Haiku”, “iOS”, “HTML5”, “OSX”, “Server”, “Windows”, “UWP”, “X11”."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "getter"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Filesystem/grid/get_user_data_dir"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 73.0
+
+[node name="label" type="Label" parent="tabs/Filesystem/grid/get_user_data_dir/hbox"]
+margin_right = 1200.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="get_system_dir" type="GraphNode" parent="tabs/Filesystem/grid" groups=[
+"functions",
+]]
+editor/display_folded = true
+margin_top = 91.0
+margin_right = 1264.0
+margin_bottom = 194.0
+hint_tooltip = "Returns true if an environment variable exists."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "function"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Filesystem/grid/get_system_dir"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 93.0
+
+[node name="lineedit" type="LineEdit" parent="tabs/Filesystem/grid/get_system_dir/hbox"]
+margin_right = 394.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+placeholder_text = "parameter"
+
+[node name="button" type="Button" parent="tabs/Filesystem/grid/get_system_dir/hbox"]
+margin_left = 402.0
+margin_right = 796.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="label" type="Label" parent="tabs/Filesystem/grid/get_system_dir/hbox"]
+margin_left = 804.0
+margin_right = 1200.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="is_userfs_persistent" type="GraphNode" parent="tabs/Filesystem/grid" groups=[
+"getters",
+]]
+editor/display_folded = true
+margin_right = 1264.0
+margin_bottom = 83.0
+hint_tooltip = "Returns the name of the host OS. Possible values are:
+“Android”, “Haiku”, “iOS”, “HTML5”, “OSX”, “Server”, “Windows”, “UWP”, “X11”."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "getter"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Filesystem/grid/is_userfs_persistent"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 73.0
+
+[node name="label" type="Label" parent="tabs/Filesystem/grid/is_userfs_persistent/hbox"]
+margin_right = 1200.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="set_use_file_access_save_and_swap" type="GraphNode" parent="tabs/Filesystem/grid" groups=[
+"setters",
+]]
+editor/display_folded = true
+margin_top = 202.0
+margin_right = 1264.0
+margin_bottom = 305.0
+hint_tooltip = "Sets the exit code that will be returned by the game."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "setter"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Filesystem/grid/set_use_file_access_save_and_swap"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 93.0
+
+[node name="lineedit" type="LineEdit" parent="tabs/Filesystem/grid/set_use_file_access_save_and_swap/hbox"]
+margin_right = 596.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+placeholder_text = "parameter"
+
+[node name="button" type="Button" parent="tabs/Filesystem/grid/set_use_file_access_save_and_swap/hbox"]
+margin_left = 604.0
+margin_right = 1200.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="Video" type="ScrollContainer" parent="tabs"]
+editor/display_folded = true
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 61.0
+margin_right = -8.0
+margin_bottom = -8.0
+scroll_vertical = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="grid" type="GridContainer" parent="tabs/Video"]
+margin_right = 1264.0
+size_flags_horizontal = 3
+
+[node name="native_video_is_playing" type="GraphNode" parent="tabs/Video/grid" groups=[
+"getters",
+]]
+editor/display_folded = true
+margin_right = 1264.0
+margin_bottom = 83.0
+hint_tooltip = "Returns the name of the host OS. Possible values are:
+“Android”, “Haiku”, “iOS”, “HTML5”, “OSX”, “Server”, “Windows”, “UWP”, “X11”."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "getter"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Video/grid/native_video_is_playing"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 73.0
+
+[node name="label" type="Label" parent="tabs/Video/grid/native_video_is_playing/hbox"]
+margin_right = 1200.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="native_video_play" type="GraphNode" parent="tabs/Video/grid" groups=[
+"functions",
+]]
+editor/display_folded = true
+margin_top = 91.0
+margin_right = 1264.0
+margin_bottom = 194.0
+hint_tooltip = "Returns true if an environment variable exists."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "function"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Video/grid/native_video_play"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 93.0
+
+[node name="lineedit" type="LineEdit" parent="tabs/Video/grid/native_video_play/hbox"]
+margin_right = 394.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+placeholder_text = "parameter"
+
+[node name="button" type="Button" parent="tabs/Video/grid/native_video_play/hbox"]
+margin_left = 402.0
+margin_right = 796.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="label" type="Label" parent="tabs/Video/grid/native_video_play/hbox"]
+margin_left = 804.0
+margin_right = 1200.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="native_video_pause" type="GraphNode" parent="tabs/Video/grid" groups=[
+"functions",
+]]
+editor/display_folded = true
+margin_top = 91.0
+margin_right = 1264.0
+margin_bottom = 194.0
+hint_tooltip = "Returns true if an environment variable exists."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "function"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Video/grid/native_video_pause"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 93.0
+
+[node name="lineedit" type="LineEdit" parent="tabs/Video/grid/native_video_pause/hbox"]
+margin_right = 394.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+placeholder_text = "parameter"
+
+[node name="button" type="Button" parent="tabs/Video/grid/native_video_pause/hbox"]
+margin_left = 402.0
+margin_right = 796.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="label" type="Label" parent="tabs/Video/grid/native_video_pause/hbox"]
+margin_left = 804.0
+margin_right = 1200.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="native_video_unpause" type="GraphNode" parent="tabs/Video/grid" groups=[
+"functions",
+]]
+editor/display_folded = true
+margin_top = 91.0
+margin_right = 1264.0
+margin_bottom = 194.0
+hint_tooltip = "Returns true if an environment variable exists."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "function"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Video/grid/native_video_unpause"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 93.0
+
+[node name="lineedit" type="LineEdit" parent="tabs/Video/grid/native_video_unpause/hbox"]
+margin_right = 394.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+placeholder_text = "parameter"
+
+[node name="button" type="Button" parent="tabs/Video/grid/native_video_unpause/hbox"]
+margin_left = 402.0
+margin_right = 796.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="label" type="Label" parent="tabs/Video/grid/native_video_unpause/hbox"]
+margin_left = 804.0
+margin_right = 1200.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="native_video_stop" type="GraphNode" parent="tabs/Video/grid" groups=[
+"functions",
+]]
+editor/display_folded = true
+margin_top = 91.0
+margin_right = 1264.0
+margin_bottom = 194.0
+hint_tooltip = "Returns true if an environment variable exists."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "function"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Video/grid/native_video_stop"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 93.0
+
+[node name="lineedit" type="LineEdit" parent="tabs/Video/grid/native_video_stop/hbox"]
+margin_right = 394.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+placeholder_text = "parameter"
+
+[node name="button" type="Button" parent="tabs/Video/grid/native_video_stop/hbox"]
+margin_left = 402.0
+margin_right = 796.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="label" type="Label" parent="tabs/Video/grid/native_video_stop/hbox"]
+margin_left = 804.0
+margin_right = 1200.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="Resources" type="ScrollContainer" parent="tabs"]
+editor/display_folded = true
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 61.0
+margin_right = -8.0
+margin_bottom = -8.0
+scroll_vertical = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="grid" type="GridContainer" parent="tabs/Resources"]
+margin_right = 1264.0
+size_flags_horizontal = 3
+
+[node name="print_all_resources" type="GraphNode" parent="tabs/Resources/grid" groups=[
+"functions",
+]]
+editor/display_folded = true
+margin_top = 91.0
+margin_right = 1264.0
+margin_bottom = 194.0
+hint_tooltip = "Returns true if an environment variable exists."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "function"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Resources/grid/print_all_resources"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 93.0
+
+[node name="lineedit" type="LineEdit" parent="tabs/Resources/grid/print_all_resources/hbox"]
+margin_right = 394.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+placeholder_text = "parameter"
+
+[node name="button" type="Button" parent="tabs/Resources/grid/print_all_resources/hbox"]
+margin_left = 402.0
+margin_right = 796.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="label" type="Label" parent="tabs/Resources/grid/print_all_resources/hbox"]
+margin_left = 804.0
+margin_right = 1200.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="print_all_textures_by_size" type="GraphNode" parent="tabs/Resources/grid" groups=[
+"functions",
+]]
+editor/display_folded = true
+margin_top = 91.0
+margin_right = 1264.0
+margin_bottom = 194.0
+hint_tooltip = "Returns true if an environment variable exists."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "function"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Resources/grid/print_all_textures_by_size"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 93.0
+
+[node name="lineedit" type="LineEdit" parent="tabs/Resources/grid/print_all_textures_by_size/hbox"]
+margin_right = 394.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+placeholder_text = "parameter"
+
+[node name="button" type="Button" parent="tabs/Resources/grid/print_all_textures_by_size/hbox"]
+margin_left = 402.0
+margin_right = 796.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="label" type="Label" parent="tabs/Resources/grid/print_all_textures_by_size/hbox"]
+margin_left = 804.0
+margin_right = 1200.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="print_resources_by_type" type="GraphNode" parent="tabs/Resources/grid" groups=[
+"functions",
+]]
+editor/display_folded = true
+margin_top = 91.0
+margin_right = 1264.0
+margin_bottom = 194.0
+hint_tooltip = "Returns true if an environment variable exists."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "function"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Resources/grid/print_resources_by_type"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 93.0
+
+[node name="lineedit" type="LineEdit" parent="tabs/Resources/grid/print_resources_by_type/hbox"]
+margin_right = 394.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+placeholder_text = "parameter"
+
+[node name="button" type="Button" parent="tabs/Resources/grid/print_resources_by_type/hbox"]
+margin_left = 402.0
+margin_right = 796.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="label" type="Label" parent="tabs/Resources/grid/print_resources_by_type/hbox"]
+margin_left = 804.0
+margin_right = 1200.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="print_resources_in_use" type="GraphNode" parent="tabs/Resources/grid" groups=[
+"functions",
+]]
+editor/display_folded = true
+margin_top = 91.0
+margin_right = 1264.0
+margin_bottom = 194.0
+hint_tooltip = "Returns true if an environment variable exists."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "function"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Resources/grid/print_resources_in_use"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 93.0
+
+[node name="lineedit" type="LineEdit" parent="tabs/Resources/grid/print_resources_in_use/hbox"]
+margin_right = 394.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+placeholder_text = "parameter"
+
+[node name="button" type="Button" parent="tabs/Resources/grid/print_resources_in_use/hbox"]
+margin_left = 402.0
+margin_right = 796.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="label" type="Label" parent="tabs/Resources/grid/print_resources_in_use/hbox"]
+margin_left = 804.0
+margin_right = 1200.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="dump_resources_to_file" type="GraphNode" parent="tabs/Resources/grid" groups=[
+"functions",
+]]
+editor/display_folded = true
+margin_top = 91.0
+margin_right = 1264.0
+margin_bottom = 194.0
+hint_tooltip = "Returns true if an environment variable exists."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "function"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Resources/grid/dump_resources_to_file"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 93.0
+
+[node name="lineedit" type="LineEdit" parent="tabs/Resources/grid/dump_resources_to_file/hbox"]
+margin_right = 394.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+placeholder_text = "parameter"
+
+[node name="button" type="Button" parent="tabs/Resources/grid/dump_resources_to_file/hbox"]
+margin_left = 402.0
+margin_right = 796.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="label" type="Label" parent="tabs/Resources/grid/dump_resources_to_file/hbox"]
+margin_left = 804.0
+margin_right = 1200.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="Memory" type="ScrollContainer" parent="tabs"]
+editor/display_folded = true
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 61.0
+margin_right = -8.0
+margin_bottom = -8.0
+scroll_vertical = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="grid" type="GridContainer" parent="tabs/Memory"]
+margin_right = 1264.0
+size_flags_horizontal = 3
+
+[node name="get_dynamic_memory_usage" type="GraphNode" parent="tabs/Memory/grid" groups=[
+"getters",
+]]
+editor/display_folded = true
+margin_right = 1264.0
+margin_bottom = 83.0
+hint_tooltip = "Returns the name of the host OS. Possible values are:
+“Android”, “Haiku”, “iOS”, “HTML5”, “OSX”, “Server”, “Windows”, “UWP”, “X11”."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "getter"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Memory/grid/get_dynamic_memory_usage"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 73.0
+
+[node name="label" type="Label" parent="tabs/Memory/grid/get_dynamic_memory_usage/hbox"]
+margin_right = 1200.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="get_static_memory_peak_usage" type="GraphNode" parent="tabs/Memory/grid" groups=[
+"getters",
+]]
+editor/display_folded = true
+margin_right = 1264.0
+margin_bottom = 83.0
+hint_tooltip = "Returns the name of the host OS. Possible values are:
+“Android”, “Haiku”, “iOS”, “HTML5”, “OSX”, “Server”, “Windows”, “UWP”, “X11”."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "getter"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Memory/grid/get_static_memory_peak_usage"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 73.0
+
+[node name="label" type="Label" parent="tabs/Memory/grid/get_static_memory_peak_usage/hbox"]
+margin_right = 1200.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="get_static_memory_usage" type="GraphNode" parent="tabs/Memory/grid" groups=[
+"getters",
+]]
+editor/display_folded = true
+margin_right = 1264.0
+margin_bottom = 83.0
+hint_tooltip = "Returns the name of the host OS. Possible values are:
+“Android”, “Haiku”, “iOS”, “HTML5”, “OSX”, “Server”, “Windows”, “UWP”, “X11”."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "getter"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Memory/grid/get_static_memory_usage"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 73.0
+
+[node name="label" type="Label" parent="tabs/Memory/grid/get_static_memory_usage/hbox"]
+margin_right = 1200.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="dump_memory_to_file" type="GraphNode" parent="tabs/Memory/grid" groups=[
+"functions",
+]]
+editor/display_folded = true
+margin_top = 91.0
+margin_right = 1264.0
+margin_bottom = 194.0
+hint_tooltip = "Returns true if an environment variable exists."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "function"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Memory/grid/dump_memory_to_file"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 93.0
+
+[node name="lineedit" type="LineEdit" parent="tabs/Memory/grid/dump_memory_to_file/hbox"]
+margin_right = 394.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+placeholder_text = "parameter"
+
+[node name="button" type="Button" parent="tabs/Memory/grid/dump_memory_to_file/hbox"]
+margin_left = 402.0
+margin_right = 796.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="label" type="Label" parent="tabs/Memory/grid/dump_memory_to_file/hbox"]
+margin_left = 804.0
+margin_right = 1200.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="Actions" type="ScrollContainer" parent="tabs"]
+editor/display_folded = true
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 61.0
+margin_right = -8.0
+margin_bottom = -8.0
+scroll_vertical = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="grid" type="GridContainer" parent="tabs/Actions"]
+margin_right = 1264.0
+size_flags_horizontal = 3
+
+[node name="alert" type="GraphNode" parent="tabs/Actions/grid" groups=[
+"functions",
+]]
+editor/display_folded = true
+margin_top = 91.0
+margin_right = 1264.0
+margin_bottom = 194.0
+hint_tooltip = "Returns true if an environment variable exists."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "function"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Actions/grid/alert"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 93.0
+
+[node name="lineedit" type="LineEdit" parent="tabs/Actions/grid/alert/hbox"]
+margin_right = 394.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+placeholder_text = "parameter"
+
+[node name="button" type="Button" parent="tabs/Actions/grid/alert/hbox"]
+margin_left = 402.0
+margin_right = 796.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="label" type="Label" parent="tabs/Actions/grid/alert/hbox"]
+margin_left = 804.0
+margin_right = 1200.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="request_attention" type="GraphNode" parent="tabs/Actions/grid" groups=[
+"functions",
+]]
+editor/display_folded = true
+margin_top = 91.0
+margin_right = 1264.0
+margin_bottom = 194.0
+hint_tooltip = "Returns true if an environment variable exists."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "function"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Actions/grid/request_attention"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 93.0
+
+[node name="lineedit" type="LineEdit" parent="tabs/Actions/grid/request_attention/hbox"]
+margin_right = 394.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+placeholder_text = "parameter"
+
+[node name="button" type="Button" parent="tabs/Actions/grid/request_attention/hbox"]
+margin_left = 402.0
+margin_right = 796.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="label" type="Label" parent="tabs/Actions/grid/request_attention/hbox"]
+margin_left = 804.0
+margin_right = 1200.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="execute" type="GraphNode" parent="tabs/Actions/grid" groups=[
+"functions",
+]]
+editor/display_folded = true
+margin_top = 91.0
+margin_right = 1264.0
+margin_bottom = 194.0
+hint_tooltip = "Returns true if an environment variable exists."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "function"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Actions/grid/execute"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 93.0
+
+[node name="lineedit" type="LineEdit" parent="tabs/Actions/grid/execute/hbox"]
+margin_right = 394.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+placeholder_text = "parameter"
+
+[node name="button" type="Button" parent="tabs/Actions/grid/execute/hbox"]
+margin_left = 402.0
+margin_right = 796.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="label" type="Label" parent="tabs/Actions/grid/execute/hbox"]
+margin_left = 804.0
+margin_right = 1200.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="shell_open" type="GraphNode" parent="tabs/Actions/grid" groups=[
+"functions",
+]]
+editor/display_folded = true
+margin_top = 91.0
+margin_right = 1264.0
+margin_bottom = 194.0
+hint_tooltip = "Returns true if an environment variable exists."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "function"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Actions/grid/shell_open"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 93.0
+
+[node name="lineedit" type="LineEdit" parent="tabs/Actions/grid/shell_open/hbox"]
+margin_right = 394.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+placeholder_text = "parameter"
+
+[node name="button" type="Button" parent="tabs/Actions/grid/shell_open/hbox"]
+margin_left = 402.0
+margin_right = 796.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="label" type="Label" parent="tabs/Actions/grid/shell_open/hbox"]
+margin_left = 804.0
+margin_right = 1200.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="kill" type="GraphNode" parent="tabs/Actions/grid" groups=[
+"functions",
+]]
+editor/display_folded = true
+margin_top = 91.0
+margin_right = 1264.0
+margin_bottom = 194.0
+hint_tooltip = "Returns true if an environment variable exists."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "function"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Actions/grid/kill"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 93.0
+
+[node name="lineedit" type="LineEdit" parent="tabs/Actions/grid/kill/hbox"]
+margin_right = 394.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+placeholder_text = "parameter"
+
+[node name="button" type="Button" parent="tabs/Actions/grid/kill/hbox"]
+margin_left = 402.0
+margin_right = 796.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="label" type="Label" parent="tabs/Actions/grid/kill/hbox"]
+margin_left = 804.0
+margin_right = 1200.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="Process" type="ScrollContainer" parent="tabs"]
+editor/display_folded = true
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 61.0
+margin_right = -8.0
+margin_bottom = -8.0
+scroll_vertical = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="grid" type="GridContainer" parent="tabs/Process"]
+margin_right = 1264.0
+size_flags_horizontal = 3
+
+[node name="can_use_threads" type="GraphNode" parent="tabs/Process/grid" groups=[
+"getters",
+]]
+editor/display_folded = true
+margin_right = 1264.0
+margin_bottom = 83.0
+hint_tooltip = "Returns the name of the host OS. Possible values are:
+“Android”, “Haiku”, “iOS”, “HTML5”, “OSX”, “Server”, “Windows”, “UWP”, “X11”."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "getter"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Process/grid/can_use_threads"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 73.0
+
+[node name="label" type="Label" parent="tabs/Process/grid/can_use_threads/hbox"]
+margin_right = 1200.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="get_process_id" type="GraphNode" parent="tabs/Process/grid" groups=[
+"getters",
+]]
+editor/display_folded = true
+margin_right = 1264.0
+margin_bottom = 83.0
+hint_tooltip = "Returns the name of the host OS. Possible values are:
+“Android”, “Haiku”, “iOS”, “HTML5”, “OSX”, “Server”, “Windows”, “UWP”, “X11”."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "getter"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Process/grid/get_process_id"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 73.0
+
+[node name="label" type="Label" parent="tabs/Process/grid/get_process_id/hbox"]
+margin_right = 1200.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="get_processor_count" type="GraphNode" parent="tabs/Process/grid" groups=[
+"getters",
+]]
+editor/display_folded = true
+margin_right = 1264.0
+margin_bottom = 83.0
+hint_tooltip = "Returns the name of the host OS. Possible values are:
+“Android”, “Haiku”, “iOS”, “HTML5”, “OSX”, “Server”, “Windows”, “UWP”, “X11”."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "getter"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Process/grid/get_processor_count"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 73.0
+
+[node name="label" type="Label" parent="tabs/Process/grid/get_processor_count/hbox"]
+margin_right = 1200.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="set_thread_name" type="GraphNode" parent="tabs/Process/grid" groups=[
+"functions",
+]]
+editor/display_folded = true
+margin_top = 91.0
+margin_right = 1264.0
+margin_bottom = 194.0
+hint_tooltip = "Returns true if an environment variable exists."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "function"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Process/grid/set_thread_name"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 93.0
+
+[node name="lineedit" type="LineEdit" parent="tabs/Process/grid/set_thread_name/hbox"]
+margin_right = 394.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+placeholder_text = "parameter"
+
+[node name="button" type="Button" parent="tabs/Process/grid/set_thread_name/hbox"]
+margin_left = 402.0
+margin_right = 796.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="label" type="Label" parent="tabs/Process/grid/set_thread_name/hbox"]
+margin_left = 804.0
+margin_right = 1200.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="is_in_low_processor_usage_mode" type="GraphNode" parent="tabs/Process/grid" groups=[
+"getters",
+]]
+editor/display_folded = true
+margin_right = 1200.0
+margin_bottom = 83.0
+hint_tooltip = "Returns the name of the host OS. Possible values are:
+“Android”, “Haiku”, “iOS”, “HTML5”, “OSX”, “Server”, “Windows”, “UWP”, “X11”."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "getter"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Process/grid/is_in_low_processor_usage_mode"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1168.0
+margin_bottom = 73.0
+
+[node name="label" type="Label" parent="tabs/Process/grid/is_in_low_processor_usage_mode/hbox"]
+margin_right = 1200.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="set_low_processor_usage_mode" type="GraphNode" parent="tabs/Process/grid" groups=[
+"setters",
+]]
+editor/display_folded = true
+margin_top = 202.0
+margin_right = 1264.0
+margin_bottom = 305.0
+hint_tooltip = "Sets the exit code that will be returned by the game."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "setter"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Process/grid/set_low_processor_usage_mode"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 93.0
+
+[node name="lineedit" type="LineEdit" parent="tabs/Process/grid/set_low_processor_usage_mode/hbox"]
+margin_right = 596.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+placeholder_text = "parameter"
+
+[node name="button" type="Button" parent="tabs/Process/grid/set_low_processor_usage_mode/hbox"]
+margin_left = 604.0
+margin_right = 1200.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="delay_msec" type="GraphNode" parent="tabs/Process/grid" groups=[
+"functions",
+]]
+editor/display_folded = true
+margin_top = 91.0
+margin_right = 1264.0
+margin_bottom = 194.0
+hint_tooltip = "Returns true if an environment variable exists."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "function"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Process/grid/delay_msec"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 93.0
+
+[node name="lineedit" type="LineEdit" parent="tabs/Process/grid/delay_msec/hbox"]
+margin_right = 394.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+placeholder_text = "parameter"
+
+[node name="button" type="Button" parent="tabs/Process/grid/delay_msec/hbox"]
+margin_left = 402.0
+margin_right = 796.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="label" type="Label" parent="tabs/Process/grid/delay_msec/hbox"]
+margin_left = 804.0
+margin_right = 1200.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="delay_usec" type="GraphNode" parent="tabs/Process/grid" groups=[
+"functions",
+]]
+editor/display_folded = true
+margin_top = 91.0
+margin_right = 1264.0
+margin_bottom = 194.0
+hint_tooltip = "Returns true if an environment variable exists."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "function"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Process/grid/delay_usec"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 93.0
+
+[node name="lineedit" type="LineEdit" parent="tabs/Process/grid/delay_usec/hbox"]
+margin_right = 394.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+placeholder_text = "parameter"
+
+[node name="button" type="Button" parent="tabs/Process/grid/delay_usec/hbox"]
+margin_left = 402.0
+margin_right = 796.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="label" type="Label" parent="tabs/Process/grid/delay_usec/hbox"]
+margin_left = 804.0
+margin_right = 1200.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="Unsorted" type="ScrollContainer" parent="tabs"]
+editor/display_folded = true
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 61.0
+margin_right = -8.0
+margin_bottom = -8.0
+scroll_vertical = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="grid" type="GridContainer" parent="tabs/Unsorted"]
+margin_right = 1264.0
+size_flags_horizontal = 3
+
+[node name="get_splash_tick_msec" type="GraphNode" parent="tabs/Unsorted/grid" groups=[
+"getters",
+]]
+editor/display_folded = true
+margin_right = 1264.0
+margin_bottom = 83.0
+hint_tooltip = "Returns the name of the host OS. Possible values are:
+“Android”, “Haiku”, “iOS”, “HTML5”, “OSX”, “Server”, “Windows”, “UWP”, “X11”."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "getter"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Unsorted/grid/get_splash_tick_msec"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 73.0
+
+[node name="label" type="Label" parent="tabs/Unsorted/grid/get_splash_tick_msec/hbox"]
+margin_right = 1200.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="is_ok_left_and_cancel_right" type="GraphNode" parent="tabs/Unsorted/grid" groups=[
+"getters",
+]]
+editor/display_folded = true
+margin_right = 1264.0
+margin_bottom = 83.0
+hint_tooltip = "Returns the name of the host OS. Possible values are:
+“Android”, “Haiku”, “iOS”, “HTML5”, “OSX”, “Server”, “Windows”, “UWP”, “X11”."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "getter"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Unsorted/grid/is_ok_left_and_cancel_right"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 73.0
+
+[node name="label" type="Label" parent="tabs/Unsorted/grid/is_ok_left_and_cancel_right/hbox"]
+margin_right = 1200.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="set_icon" type="GraphNode" parent="tabs/Unsorted/grid" groups=[
+"functions",
+]]
+editor/display_folded = true
+margin_top = 91.0
+margin_right = 1264.0
+margin_bottom = 194.0
+hint_tooltip = "Returns true if an environment variable exists."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "function"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Unsorted/grid/set_icon"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 93.0
+
+[node name="lineedit" type="LineEdit" parent="tabs/Unsorted/grid/set_icon/hbox"]
+margin_right = 394.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+placeholder_text = "parameter"
+
+[node name="button" type="Button" parent="tabs/Unsorted/grid/set_icon/hbox"]
+margin_left = 402.0
+margin_right = 796.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="label" type="Label" parent="tabs/Unsorted/grid/set_icon/hbox"]
+margin_left = 804.0
+margin_right = 1200.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+align = 1
+valign = 1
+
+[node name="set_ime_position" type="GraphNode" parent="tabs/Unsorted/grid" groups=[
+"setters",
+]]
+editor/display_folded = true
+margin_top = 202.0
+margin_right = 1264.0
+margin_bottom = 305.0
+hint_tooltip = "Sets the exit code that will be returned by the game."
+mouse_filter = 1
+size_flags_horizontal = 3
+title = "setter"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="hbox" type="HBoxContainer" parent="tabs/Unsorted/grid/set_ime_position"]
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 93.0
+
+[node name="lineedit" type="LineEdit" parent="tabs/Unsorted/grid/set_ime_position/hbox"]
+margin_right = 596.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+placeholder_text = "parameter"
+
+[node name="button" type="Button" parent="tabs/Unsorted/grid/set_ime_position/hbox"]
+margin_left = 604.0
+margin_right = 1200.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+text = "Update"
+
+[node name="timer" type="Timer" parent="."]
+wait_time = 0.1
+
+[connection signal="tab_changed" from="tabs" to="." method="_on_tabs_tab_changed"]
+[connection signal="button_up" from="tabs/OS Test/grid/os_test_menu/hbox/restart" to="tabs/OS Test/grid/os_test_menu" method="_on_restart_button_up"]
+[connection signal="button_up" from="tabs/OS Test/grid/os_test_menu/hbox/quit" to="tabs/OS Test/grid/os_test_menu" method="_on_quit_button_up"]
+[connection signal="pressed" from="tabs/Vorlage/grid/function/hbox/button" to="tabs/Vorlage/grid/function" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/Vorlage/grid/setter/hbox/button" to="tabs/Vorlage/grid/setter" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/System/grid/has_environment/hbox/button" to="tabs/System/grid/has_environment" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/System/grid/get_environment/hbox/button" to="tabs/System/grid/get_environment" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/System/grid/has_feature/hbox/button" to="tabs/System/grid/has_feature" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/System/grid/set_exit_code/hbox/button" to="tabs/System/grid/set_exit_code" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/Power/grid/get_power_percent_left/hbox/button" to="tabs/Power/grid/get_power_percent_left" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/Power/grid/get_power_seconds_left/hbox/button" to="tabs/Power/grid/get_power_seconds_left" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/Power/grid/get_power_state/hbox/button" to="tabs/Power/grid/get_power_state" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/Screen/grid/set_current_screen/hbox/button" to="tabs/Screen/grid/set_current_screen" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/Screen/grid/get_screen_size/hbox/button" to="tabs/Screen/grid/get_screen_size" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/Screen/grid/get_screen_dpi/hbox/button" to="tabs/Screen/grid/get_screen_dpi" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/Screen/grid/set_screen_orientation/hbox/button" to="tabs/Screen/grid/set_screen_orientation" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/Screen/grid/get_screen_position/hbox/button" to="tabs/Screen/grid/get_screen_position" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/Screen/grid/set_keep_screen_on/hbox/button" to="tabs/Screen/grid/set_keep_screen_on" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/Screen/grid/set_use_vsync/hbox/button" to="tabs/Screen/grid/set_use_vsync" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/Window/grid/set_borderless_window/hbox/button" to="tabs/Window/grid/set_borderless_window" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/Window/grid/set_window_position/hbox/button" to="tabs/Window/grid/set_window_position" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/Window/grid/set_window_size/hbox/button" to="tabs/Window/grid/set_window_size" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/Window/grid/set_window_fullscreen/hbox/button" to="tabs/Window/grid/set_window_fullscreen" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/Window/grid/set_window_maximized/hbox/button" to="tabs/Window/grid/set_window_maximized" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/Window/grid/set_window_minimized/hbox/button" to="tabs/Window/grid/set_window_minimized" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/Window/grid/set_window_resizable/hbox/button" to="tabs/Window/grid/set_window_resizable" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/Window/grid/set_window_title/hbox/button" to="tabs/Window/grid/set_window_title" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/Time/grid/get_time/hbox/button" to="tabs/Time/grid/get_time" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/Time/grid/get_unix_time_from_datetime/hbox/button" to="tabs/Time/grid/get_unix_time_from_datetime" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/Time/grid/get_date/hbox/button" to="tabs/Time/grid/get_date" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/Time/grid/get_datetime/hbox/button" to="tabs/Time/grid/get_datetime" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/Time/grid/get_datetime_from_unix_time/hbox/button" to="tabs/Time/grid/get_datetime_from_unix_time" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/Localisation/grid/find_scancode_from_string/hbox/button" to="tabs/Localisation/grid/find_scancode_from_string" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/Localisation/grid/get_scancode_string/hbox/button" to="tabs/Localisation/grid/get_scancode_string" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/Localisation/grid/is_scancode_unicode/hbox/button" to="tabs/Localisation/grid/is_scancode_unicode" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/Keyboard/grid/show_virtual_keyboard/hbox/button" to="tabs/Keyboard/grid/show_virtual_keyboard" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/Keyboard/grid/hide_virtual_keyboard/hbox/button" to="tabs/Keyboard/grid/hide_virtual_keyboard" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/Keyboard/grid/set_clipboard/hbox/button" to="tabs/Keyboard/grid/set_clipboard" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/Filesystem/grid/get_system_dir/hbox/button" to="tabs/Filesystem/grid/get_system_dir" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/Filesystem/grid/set_use_file_access_save_and_swap/hbox/button" to="tabs/Filesystem/grid/set_use_file_access_save_and_swap" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/Video/grid/native_video_play/hbox/button" to="tabs/Video/grid/native_video_play" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/Video/grid/native_video_pause/hbox/button" to="tabs/Video/grid/native_video_pause" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/Video/grid/native_video_unpause/hbox/button" to="tabs/Video/grid/native_video_unpause" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/Video/grid/native_video_stop/hbox/button" to="tabs/Video/grid/native_video_stop" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/Resources/grid/print_all_resources/hbox/button" to="tabs/Resources/grid/print_all_resources" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/Resources/grid/print_all_textures_by_size/hbox/button" to="tabs/Resources/grid/print_all_textures_by_size" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/Resources/grid/print_resources_by_type/hbox/button" to="tabs/Resources/grid/print_resources_by_type" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/Resources/grid/print_resources_in_use/hbox/button" to="tabs/Resources/grid/print_resources_in_use" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/Resources/grid/dump_resources_to_file/hbox/button" to="tabs/Resources/grid/dump_resources_to_file" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/Memory/grid/dump_memory_to_file/hbox/button" to="tabs/Memory/grid/dump_memory_to_file" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/Actions/grid/alert/hbox/button" to="tabs/Actions/grid/alert" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/Actions/grid/request_attention/hbox/button" to="tabs/Actions/grid/request_attention" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/Actions/grid/execute/hbox/button" to="tabs/Actions/grid/execute" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/Actions/grid/shell_open/hbox/button" to="tabs/Actions/grid/shell_open" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/Actions/grid/kill/hbox/button" to="tabs/Actions/grid/kill" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/Process/grid/set_thread_name/hbox/button" to="tabs/Process/grid/set_thread_name" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/Process/grid/set_low_processor_usage_mode/hbox/button" to="tabs/Process/grid/set_low_processor_usage_mode" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/Process/grid/delay_msec/hbox/button" to="tabs/Process/grid/delay_msec" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/Process/grid/delay_usec/hbox/button" to="tabs/Process/grid/delay_usec" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/Unsorted/grid/set_icon/hbox/button" to="tabs/Unsorted/grid/set_icon" method="_on_button_pressed"]
+[connection signal="pressed" from="tabs/Unsorted/grid/set_ime_position/hbox/button" to="tabs/Unsorted/grid/set_ime_position" method="_on_button_pressed"]
+[connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]

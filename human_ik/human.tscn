@@ -1,0 +1,113 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://human.gd" type="Script" id=1]
+[ext_resource path="res://godette/body.png" type="Texture" id=2]
+[ext_resource path="res://godette/upper_arm.png" type="Texture" id=3]
+[ext_resource path="res://godette/lower_arm.png" type="Texture" id=4]
+[ext_resource path="res://godette/hand.png" type="Texture" id=5]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 10.0
+
+[node name="human" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
+_sections_unfolded = [ "Material", "Transform", "Visibility" ]
+
+[node name="body" type="Position2D" parent="." index="0"]
+
+editor/display_folded = true
+_sections_unfolded = [ "Transform" ]
+
+[node name="sprite" type="Sprite" parent="body" index="0"]
+
+texture = ExtResource( 2 )
+
+[node name="shoulder" type="Position2D" parent="." index="1"]
+
+editor/display_folded = true
+position = Vector2( -25.9617, -295.099 )
+
+[node name="base" type="Position2D" parent="shoulder" index="0"]
+
+position = Vector2( 0, 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="sprite" type="Sprite" parent="shoulder" index="1"]
+
+position = Vector2( -0.928787, 1.17932 )
+texture = ExtResource( 3 )
+offset = Vector2( 4.2459, 76.4409 )
+
+[node name="elbow" type="Position2D" parent="." index="2"]
+
+position = Vector2( -15.7238, -118.942 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="sprite" type="Sprite" parent="elbow" index="0"]
+
+position = Vector2( -0.594101, -1.07101 )
+texture = ExtResource( 4 )
+offset = Vector2( 8.55513, 57.4618 )
+_sections_unfolded = [ "Offset" ]
+
+[node name="wrist" type="Position2D" parent="." index="3"]
+
+editor/display_folded = true
+position = Vector2( 4.66051, 1.21846 )
+
+[node name="sprite" type="Sprite" parent="wrist" index="0"]
+
+position = Vector2( 0.247818, -0.704666 )
+texture = ExtResource( 5 )
+offset = Vector2( -7.54546, 49.7977 )
+
+[node name="fingertips" type="Position2D" parent="." index="4"]
+
+position = Vector2( -29.9036, 80.5709 )
+
+[node name="target" type="RigidBody2D" parent="." index="5"]
+
+editor/display_folded = true
+position = Vector2( 276.191, -295.73 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+mode = 0
+mass = 0.01
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+
+[node name="polygon" type="Polygon2D" parent="target" index="0"]
+
+polygon = PoolVector2Array( -10, 0, 0, -10, 10, 0, 0, 10 )
+uv = PoolVector2Array(  )
+color = Color( 0.176331, 0.835938, 0.310313, 1 )
+vertex_colors = PoolColorArray(  )
+offset = Vector2( 0, 0 )
+antialiased = false
+texture = null
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
+
+[node name="collision_shape" type="CollisionShape2D" parent="target" index="1"]
+
+shape = SubResource( 1 )
+
+

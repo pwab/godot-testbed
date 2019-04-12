@@ -1,0 +1,168 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://paperdot.gd" type="Script" id=1]
+
+[node name="paperdot" type="Control"]
+script = ExtResource( 1 )
+
+[node name="gui" type="VBoxContainer" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="menubar" type="Panel" parent="gui"]
+editor/display_folded = true
+margin_right = 1920.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 0, 32 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.03
+
+[node name="menu" type="HBoxContainer" parent="gui/menubar"]
+margin_right = 1920.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="file" type="MenuButton" parent="gui/menubar/menu"]
+margin_right = 50.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 50, 0 )
+text = "File"
+
+[node name="edit" type="MenuButton" parent="gui/menubar/menu"]
+margin_left = 54.0
+margin_right = 104.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 50, 0 )
+text = "Edit"
+
+[node name="help" type="MenuButton" parent="gui/menubar/menu"]
+margin_left = 108.0
+margin_right = 158.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 50, 0 )
+text = "Help"
+
+[node name="main" type="MarginContainer" parent="gui"]
+margin_top = 36.0
+margin_right = 1920.0
+margin_bottom = 1044.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="env" type="HBoxContainer" parent="gui/main"]
+margin_right = 1920.0
+margin_bottom = 1008.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="editor" type="TextEdit" parent="gui/main/env"]
+margin_right = 1277.0
+margin_bottom = 1008.0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Wagner billigte die Fassung des »Mahnrufs« durchaus; aber die Delegierten der Wagner-Vereine waren der Ansicht, daß derselbe wohl allen Freunden aus dem Herzen gesprochen sei, aber Gegner und Gleichgültige nicht bekehren werde.
+
+In einem Briefe an Freiherrn von Gersdorff schrieb Nietzsche hierüber: »Also ich war von Mittwochabend bis Montagmorgen auf der Reise, hinwärts allein, rückwärts mit Heckel zusammen. In Bayreuth war etwa ein Dutzend Menschen zusammengekommen, lauter Delegierte der Vereine und ich der einzige Patron an sich. – Nach der Besichtigung in Dreck, Nebel und Dunkelheit war die Hauptsitzung im Rathaussaal, in der mein »Mahnruf« von seiten der Delegierten artig aber bestimmt abgelehnt wurde; ich selbst protestierte gegen eine Umarbeitung und empfahl Prof. Stern für die schnelle Anfertigung eines neuen Fabrikats. Dagegen wurde Heckels vortrefflicher Vorschlag, bei sämtlichen deutschen Buchhändlern Sammelstätten zu errichten, approbiert.«
+
+– In der Verehrung Wagners aufgewachsen, vertiefte ich mich nach dem Besuch der ersten Bayreuther Bühnenfestspiele in das Studium Schopenhauers, veröffentlichte später philosophische Deutungen des »Parsifal«, unterschied jedoch schon damals zwei Richtungen in Wagners Schaffen: die lebensfreudige des Siegfried und die[6] entsagungswillige des Parsifal. Ich beurteilte die Werke Wagners unter diesem Gesichtspunkte als sich ergänzende Gegensätze. Und nun, als ich Nietzsches Werke aus der Zeit nach der Abkehr von Bayreuth kennen lernte, da sah ich auch in Wagner und Nietzsche selbst Kontrapunkte der kulturellen Entwicklung. Diese Erkenntnis veranlaßte mich zu einer Zeit, da man einerseits bei Nietzsche nur eine willkürliche Abtrünnigkeit von Wagner, anderseits bei Wagner nur einen Abfall von seiner seitherigen Lebensanschauung sah, zu einer Betrachtung aus der Vogelperspektive, die bestrebt war, beiden gerecht zu werden. Und so unternahm ich in einem Aufsatz »Wagner und Nietzsche«, der 1897 in der »Neuen Deutschen Rundschau« erschien, erstmals den Versuch, die Scheidung der beiden Freunde als notwendig aus ihrer innersten Natur und Entwicklung darzustellen und auf die Polarität ihrer Bestrebungen zu verweisen.
+
+Daß diese Auffassung Nietzsches eigener Anschauung entspricht, bezeugt uns sein Aphorismus »Sternenfreundschaft«, worin er im Hinblick auf Wagner schrieb: »Es gibt wahrscheinlich eine ungeheuere Kurve und Sternenbahn, in der unsere so verschiedenen Straßen und Ziele als kleine Wegstrecken einbegriffen sein mögen – erheben wir uns zu diesem Gedanken.«
+
+Mit großer Spannung sah ich der Aufnahme entgegen, die meine Ausführungen sowohl in Wahnfried als im Nietzsche-Archiv finden würden. Aber noch sah man in Bayreuth nur den Abfall Nietzsches von Wagner, nicht seinen eigenen Aufstieg, und so schrieb mir Frau Wagner: Ziele habe Nietzsche nicht gehabt, sondern eine schwere Krankheit, die ihn von Bayreuth trennte; da könne man kaum selbst nur von Meinungsverschiedenheiten sprechen. In vollem Gegensatz hierzu stand die Beurteilung, die mein Aufsatz in Weimar fand. Frau Dr. Förster schrieb an meinen Vater: »Soeben lege ich den Artikel Ihres Herrn Sohnes in der »Neuen Deutschen[7] Rundschau« aus der Hand, und ich kann wohl sagen, daß ich zum erstenmal an einem über meinen Bruder geschriebenen Artikel aufrichtig Freude gehabt habe.«
+
+Gern entsprach ich dem Wunsche von Frau Dr. Förster, sie im Nietzsche-Archiv zu besuchen. Ich hielt daselbst vor einem geladenen Publikum einen Vortrag über Nietzsches Verhältnis zu Wagner und blieb seitdem andauernd in Beziehung zu dem Hause auf dem Silberblick in Weimar, woselbst Nietzsche im Jahre 1900 verstorben war. Gar manche aufklärende Mitteilung wurde mir durch Frau Dr. Förster zuteil, wofür ich an dieser Stelle meinen Dank ausspreche.
+
+Aber auch noch einer anderen Frau darf ich dankbar hier gedenken: der Verfasserin der »Memoiren einer Idealistin« Malwida von Meysenbug, der gemeinsamen Freundin Wagners und Nietzsches. Während eines über mehrere Jahre sich erstreckenden Briefwechsels gab sie mir freundwilligst manche belangreiche Auskunft über Nietzsche.
+
+Die hauptsächlichen Mitteilungen über sein Leben gründen sich vor allem auf Nietzsches Briefe, auf die von der Schwester verfaßten Biographien und auf Erinnerungen, welche von Personen, die mit ihm in Verkehr standen, veröffentlicht wurden. Sie erfuhren Ergänzungen durch persönliche Mitteilungen, die ich meinem Vater, Peter Gast, Freiherrn von Seydlitz, Dr. M. G. Conrad und anderen verdanke.
+
+Mein Aufsatz »Wagner und Nietzsche« in der »Neuen Deutschen Rundschau« bildet gewissermaßen den Ausgangspunkt für das vorliegende Buch. Indem dasselbe durch Betonung der Polarität zwischen Nietzsche und Wagner, Nietzsche und Schopenhauer, Nietzsche und Sokrates, sowie in Nietzsches Verhältnis zum Christentum, die Grundlinien seiner Weltanschauung scharf und deutlich hervorhebt, hofft es der mächtigen Einseitigkeit seines[8] Radikalismus gerecht zu werden und der Gefahr jedes verwischenden Kompromisses zu entgehen, der so manche Schrift der Nietzsche-Literatur unterlag.
+
+Dieses Ziel galt es unter gleichzeitiger Betrachtung seines Lebens und seiner Lehre zu erstreben. Ich sagte mir, je kürzer und knapper es mir gelingt, frei von jedem gelehrten Beiwerk die Grundlinien seines Lebens und Schaffens zu zeichnen und alle anzuführenden Einzelheiten organisch mit ihnen zu verbinden, desto leichter wird es dem Leser, in die Gedankenwelt Nietzsches einzudringen und ihn mit mir zu – erleben. Dann erst, wenn sich uns, was er lehrte und lebte, dachte, dichtete und sah, zu einem Vollbilde der schaffenden Persönlichkeit verdichtet, dürfen wir zu erkennen hoffen, inwiefern mit Nietzsche, diesem Meilensteinmenschen, eine neue Epoche der Kulturgeschichte anhebt, in der nicht die Verächter des Lebens, sondern die Verklärer des Lebens aus schwerbelasteter Gegenwart uns die Wege in das Heil der Zukunft weisen."
+highlight_all_occurrences = true
+wrap_enabled = true
+
+[node name="side" type="MarginContainer" parent="gui/main/env"]
+margin_left = 1281.0
+margin_right = 1920.0
+margin_bottom = 1008.0
+rect_clip_content = true
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="menu" type="VBoxContainer" parent="gui/main/env/side"]
+margin_right = 639.0
+margin_bottom = 1008.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="menu_caption" type="Label" parent="gui/main/env/side/menu"]
+margin_right = 639.0
+margin_bottom = 14.0
+text = "Menue"
+align = 1
+
+[node name="hsep1" type="HSeparator" parent="gui/main/env/side/menu"]
+margin_top = 18.0
+margin_right = 639.0
+margin_bottom = 22.0
+
+[node name="scan_button" type="Button" parent="gui/main/env/side/menu"]
+margin_top = 26.0
+margin_right = 639.0
+margin_bottom = 46.0
+text = "Scan"
+
+[node name="hsep2" type="HSeparator" parent="gui/main/env/side/menu"]
+margin_top = 50.0
+margin_right = 639.0
+margin_bottom = 54.0
+
+[node name="most_used_caption" type="Label" parent="gui/main/env/side/menu"]
+margin_top = 58.0
+margin_right = 639.0
+margin_bottom = 72.0
+text = "Most used words"
+
+[node name="most_used_list" type="ItemList" parent="gui/main/env/side/menu"]
+margin_top = 76.0
+margin_right = 639.0
+margin_bottom = 376.0
+rect_min_size = Vector2( 0, 300 )
+max_columns = 2
+same_column_width = true
+
+[node name="statusbar" type="Panel" parent="gui"]
+editor/display_folded = true
+margin_top = 1048.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+rect_min_size = Vector2( 0, 32 )
+mouse_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.02
+
+[node name="status" type="HBoxContainer" parent="gui/statusbar"]
+margin_right = 40.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="info" type="Label" parent="gui/statusbar/status"]
+margin_right = 100.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 100, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Status"
+align = 1
+valign = 1
+

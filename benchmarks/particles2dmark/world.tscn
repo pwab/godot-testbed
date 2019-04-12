@@ -1,0 +1,88 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://world.gd" type="Script" id=1]
+
+[node name="world" type="Node"]
+script = ExtResource( 1 )
+
+[node name="background" type="Polygon2D" parent="."]
+color = Color( 0, 0, 0, 1 )
+polygon = PoolVector2Array( 1920, 0, 1920, 1080, 0, 1080, 0, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="timer" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="ui" type="CanvasLayer" parent="."]
+
+[node name="numbers_panel" type="Panel" parent="ui"]
+modulate = Color( 0, 0, 0, 0.588235 )
+margin_left = 1800.0
+margin_right = 1920.0
+margin_bottom = 97.0
+
+[node name="numbers_label" type="Label" parent="ui"]
+margin_left = 1800.0
+margin_right = 1860.0
+margin_bottom = 31.0
+rect_scale = Vector2( 2, 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "0
+0
+0"
+align = 2
+
+[node name="seed_edit" type="LineEdit" parent="ui"]
+margin_left = 1572.0
+margin_top = 1039.0
+margin_right = 1772.0
+margin_bottom = 1063.0
+rect_min_size = Vector2( 200, 10 )
+rect_scale = Vector2( 1.5, 1.5 )
+size_flags_vertical = 4
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "I<3Godot"
+align = 1
+expand_to_text_length = true
+placeholder_text = "seed"
+
+[node name="wait_time_edit" type="LineEdit" parent="ui"]
+margin_left = 1481.0
+margin_top = 1039.0
+margin_right = 1539.0
+margin_bottom = 1063.0
+rect_min_size = Vector2( 50, 10 )
+rect_scale = Vector2( 1.5, 1.5 )
+size_flags_vertical = 4
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "0.1"
+align = 1
+expand_to_text_length = true
+placeholder_text = "time"
+
+[node name="fps_lock_edit" type="LineEdit" parent="ui"]
+margin_left = 1390.0
+margin_top = 1039.0
+margin_right = 1448.0
+margin_bottom = 1063.0
+rect_min_size = Vector2( 50, 10 )
+rect_scale = Vector2( 1.5, 1.5 )
+size_flags_vertical = 4
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "30"
+align = 1
+expand_to_text_length = true
+placeholder_text = "fps"
+
+[node name="go" type="Button" parent="ui"]
+margin_left = 1877.0
+margin_top = 1037.0
+margin_right = 1917.0
+margin_bottom = 1077.0
+rect_min_size = Vector2( 40, 40 )
+text = "go"
+
+[connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
+[connection signal="button_up" from="ui/go" to="." method="_on_go_button_up"]

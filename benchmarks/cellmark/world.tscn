@@ -1,0 +1,240 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://world.gd" type="Script" id=1]
+[ext_resource path="res://wall.tscn" type="PackedScene" id=2]
+[ext_resource path="res://performance_grid.gd" type="Script" id=3]
+
+[node name="world" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ui" type="HBoxContainer" parent="."]
+margin_right = 1924.0
+margin_bottom = 1080.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="body" type="Container" parent="ui"]
+editor/display_folded = true
+margin_right = 1080.0
+margin_bottom = 1080.0
+rect_min_size = Vector2( 1080, 1080 )
+
+[node name="borders" type="Container" parent="ui/body"]
+editor/display_folded = true
+margin_right = 1080.0
+margin_bottom = 1080.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="top_wall" parent="ui/body/borders" instance=ExtResource( 2 )]
+position = Vector2( 540, 20 )
+
+[node name="bottom_wall" parent="ui/body/borders" instance=ExtResource( 2 )]
+position = Vector2( 540, 1060 )
+
+[node name="left_wall" parent="ui/body/borders" instance=ExtResource( 2 )]
+position = Vector2( 20, 540 )
+rotation = 1.5708
+
+[node name="right_wall" parent="ui/body/borders" instance=ExtResource( 2 )]
+position = Vector2( 1070, 540 )
+rotation = 1.5708
+
+[node name="menu" type="Panel" parent="ui"]
+margin_left = 1084.0
+margin_right = 1924.0
+margin_bottom = 1080.0
+rect_min_size = Vector2( 840, 1080 )
+
+[node name="vbox" type="VBoxContainer" parent="ui/menu"]
+margin_left = 5.0
+margin_top = 40.0
+margin_right = 205.0
+margin_bottom = 300.0
+rect_scale = Vector2( 4, 4 )
+
+[node name="restart_button" type="Button" parent="ui/menu/vbox"]
+margin_right = 200.0
+margin_bottom = 20.0
+text = "Restart"
+
+[node name="random_cell_button" type="Button" parent="ui/menu/vbox"]
+margin_top = 24.0
+margin_right = 200.0
+margin_bottom = 44.0
+text = "Spawn random cell"
+
+[node name="spawn_box" type="HBoxContainer" parent="ui/menu/vbox"]
+margin_top = 48.0
+margin_right = 200.0
+margin_bottom = 68.0
+
+[node name="multiple_cells_button" type="Button" parent="ui/menu/vbox/spawn_box"]
+margin_right = 144.0
+margin_bottom = 20.0
+text = "Spawn multiple cells"
+
+[node name="spawn_slider" type="HSlider" parent="ui/menu/vbox/spawn_box"]
+margin_left = 148.0
+margin_right = 198.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 50, 0 )
+min_value = 2.0
+max_value = 200.0
+value = 20.0
+
+[node name="reproduction_button" type="Button" parent="ui/menu/vbox"]
+margin_top = 72.0
+margin_right = 200.0
+margin_bottom = 92.0
+text = "Reproduction"
+
+[node name="move_box" type="HBoxContainer" parent="ui/menu/vbox"]
+margin_top = 96.0
+margin_right = 200.0
+margin_bottom = 116.0
+
+[node name="move_cells_button" type="Button" parent="ui/menu/vbox/move_box"]
+margin_right = 95.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 95, 0 )
+text = "Lets move"
+
+[node name="move_slider" type="HSlider" parent="ui/menu/vbox/move_box"]
+margin_left = 99.0
+margin_right = 194.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 95, 0 )
+max_value = 1000.0
+value = 20.0
+
+[node name="console" type="TextEdit" parent="ui/menu/vbox"]
+margin_top = 120.0
+margin_right = 200.0
+margin_bottom = 180.0
+rect_min_size = Vector2( 0, 60 )
+readonly = true
+smooth_scrolling = true
+
+[node name="performance_grid" type="GridContainer" parent="ui/menu"]
+margin_left = 28.0
+margin_top = 774.0
+margin_right = 222.0
+margin_bottom = 842.0
+rect_min_size = Vector2( 0, 50 )
+rect_scale = Vector2( 4, 4 )
+columns = 3
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="process_caption" type="Label" parent="ui/menu/performance_grid"]
+margin_right = 80.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 80, 0 )
+text = "Process"
+
+[node name="fps_caption" type="Label" parent="ui/menu/performance_grid"]
+margin_left = 84.0
+margin_right = 146.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 40, 0 )
+text = "FPS"
+
+[node name="fps_label" type="Label" parent="ui/menu/performance_grid"]
+modulate = Color( 0.53125, 0.802246, 1, 1 )
+margin_left = 150.0
+margin_right = 190.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 40, 0 )
+align = 2
+
+[node name="process_label" type="Label" parent="ui/menu/performance_grid"]
+modulate = Color( 1, 0.578125, 0.578125, 1 )
+margin_top = 18.0
+margin_right = 80.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 80, 0 )
+
+[node name="rigids_caption" type="Label" parent="ui/menu/performance_grid"]
+margin_left = 84.0
+margin_top = 18.0
+margin_right = 146.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 40, 0 )
+text = "Rigids"
+
+[node name="rigids_label" type="Label" parent="ui/menu/performance_grid"]
+modulate = Color( 0.53125, 0.802246, 1, 1 )
+margin_left = 150.0
+margin_top = 18.0
+margin_right = 190.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 40, 0 )
+align = 2
+
+[node name="physics_caption" type="Label" parent="ui/menu/performance_grid"]
+margin_top = 36.0
+margin_right = 80.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 80, 0 )
+text = "Physics"
+
+[node name="collisions_caption" type="Label" parent="ui/menu/performance_grid"]
+margin_left = 84.0
+margin_top = 36.0
+margin_right = 146.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 40, 0 )
+text = "Collisions"
+
+[node name="collisions_label" type="Label" parent="ui/menu/performance_grid"]
+modulate = Color( 0.53125, 0.802246, 1, 1 )
+margin_left = 150.0
+margin_top = 36.0
+margin_right = 190.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 40, 0 )
+align = 2
+
+[node name="physics_label" type="Label" parent="ui/menu/performance_grid"]
+modulate = Color( 1, 0.578125, 0.578125, 1 )
+margin_top = 54.0
+margin_right = 80.0
+margin_bottom = 68.0
+rect_min_size = Vector2( 80, 0 )
+
+[node name="islands_caption" type="Label" parent="ui/menu/performance_grid"]
+margin_left = 84.0
+margin_top = 54.0
+margin_right = 146.0
+margin_bottom = 68.0
+rect_min_size = Vector2( 40, 0 )
+text = "Islands"
+
+[node name="islands_label" type="Label" parent="ui/menu/performance_grid"]
+modulate = Color( 0.53125, 0.802246, 1, 1 )
+margin_left = 150.0
+margin_top = 54.0
+margin_right = 190.0
+margin_bottom = 68.0
+rect_min_size = Vector2( 40, 0 )
+align = 2
+
+[node name="timer" type="Timer" parent="ui/menu/performance_grid"]
+process_mode = 0
+wait_time = 0.01
+autostart = true
+
+[connection signal="button_up" from="ui/menu/vbox/restart_button" to="." method="_on_restart_button_button_up"]
+[connection signal="button_up" from="ui/menu/vbox/random_cell_button" to="." method="_on_random_cell_button_button_up"]
+[connection signal="button_up" from="ui/menu/vbox/spawn_box/multiple_cells_button" to="." method="_on_multiple_cells_button_button_up"]
+[connection signal="button_up" from="ui/menu/vbox/reproduction_button" to="." method="_on_reproduction_button_button_up"]
+[connection signal="button_up" from="ui/menu/vbox/move_box/move_cells_button" to="." method="_on_move_cells_button_button_up"]
+[connection signal="timeout" from="ui/menu/performance_grid/timer" to="ui/menu/performance_grid" method="_on_timer_timeout"]
