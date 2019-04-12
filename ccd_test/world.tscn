@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://world.gd" type="Script" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 320, 20 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 20, 20 )
+
+[node name="world" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ground" type="StaticBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 320, 340 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="shape" type="CollisionShape2D" parent="ground"]
+shape = SubResource( 1 )
+
+[node name="object" type="RigidBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 320, 20 )
+gravity_scale = 100.0
+continuous_cd = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="shape" type="CollisionShape2D" parent="object"]
+shape = SubResource( 2 )
+
+[node name="menu" type="VBoxContainer" parent="."]
+editor/display_folded = true
+margin_right = 45.0
+margin_bottom = 32.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="fps" type="Label" parent="menu"]
+margin_right = 45.0
+margin_bottom = 14.0
+text = "FPS: 0"
+
+[node name="step" type="Label" parent="menu"]
+margin_top = 18.0
+margin_right = 45.0
+margin_bottom = 32.0
+text = "STEP: 0"
+

@@ -1,0 +1,103 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://world.gd" type="Script" id=1]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 320, 180 )
+
+[sub_resource type="PhysicsMaterial" id=4]
+rough = true
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 100, 100 )
+
+[sub_resource type="PhysicsMaterial" id=5]
+rough = true
+
+[sub_resource type="CircleShape2D" id=2]
+
+[node name="world" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="wall" type="StaticBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 320, 180 )
+collision_layer = 0
+collision_mask = 0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="shape" type="CollisionShape2D" parent="wall"]
+shape = SubResource( 3 )
+
+[node name="mass" type="RigidBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 320, 180 )
+mass = 3.2
+physics_material_override = SubResource( 4 )
+continuous_cd = 2
+contact_monitor = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="shape" type="CollisionShape2D" parent="mass"]
+shape = SubResource( 1 )
+
+[node name="pin" type="PinJoint2D" parent="mass"]
+node_a = NodePath("../../wall")
+node_b = NodePath("..")
+
+[node name="finger1" type="RigidBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 160, 180 )
+mode = 2
+physics_material_override = SubResource( 5 )
+gravity_scale = 0.0
+continuous_cd = 2
+contacts_reported = 1
+contact_monitor = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="shape" type="CollisionShape2D" parent="finger1"]
+shape = SubResource( 2 )
+
+[node name="joint" type="GrooveJoint2D" parent="finger1"]
+rotation = -1.5708
+node_a = NodePath("../../wall")
+node_b = NodePath("..")
+length = 100.0
+initial_offset = 1.0
+
+[node name="finger2" type="RigidBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 480, 180 )
+rotation = 3.14159
+mode = 2
+physics_material_override = SubResource( 5 )
+gravity_scale = 0.0
+continuous_cd = 2
+contacts_reported = 1
+contact_monitor = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="shape" type="CollisionShape2D" parent="finger2"]
+shape = SubResource( 2 )
+
+[node name="joint" type="GrooveJoint2D" parent="finger2"]
+rotation = -1.5708
+node_a = NodePath("../../wall")
+node_b = NodePath("..")
+length = 100.0
+initial_offset = 1.0
+
+[node name="Timer" type="Timer" parent="."]
+process_mode = 0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

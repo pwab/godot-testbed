@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="CircleShape2D" id=1]
+
+[node name="object" type="Node2D"]
+
+[node name="shape" type="Area2D" parent="."]
+gravity_vec = Vector2( 0, 0 )
+gravity = 0.0
+linear_damp = 0.0
+angular_damp = 0.0
+
+[node name="collision" type="CollisionShape2D" parent="shape"]
+shape = SubResource( 1 )
+

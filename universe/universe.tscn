@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://simulation/simulation.tscn" type="PackedScene" id=1]
+[ext_resource path="res://simulation/simulation.gd" type="Script" id=2]
+[ext_resource path="res://object/object.tscn" type="PackedScene" id=3]
+[ext_resource path="res://object/object.gd" type="Script" id=4]
+
+[node name="universe" type="Node2D"]
+
+[node name="simulation" parent="." instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="object" parent="." instance=ExtResource( 3 )]
+script = ExtResource( 4 )
+

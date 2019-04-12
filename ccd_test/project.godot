@@ -1,0 +1,41 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[  ]
+_global_script_class_icons={
+
+}
+
+[application]
+
+config/name="ccd_test"
+run/main_scene="res://world.tscn"
+run/frame_delay_msec=1000
+config/icon="res://icon.png"
+
+[display]
+
+window/size/width=640
+window/size/height=360
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
+
+[node]
+
+name_num_separator=2
+name_casing=2
+
+[physics]
+
+common/physics_fps=0
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"
