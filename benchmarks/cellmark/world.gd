@@ -5,10 +5,16 @@ onready var vector_0 = Vector2(0,0)
 onready var cell_scene = preload("res://cell.tscn")
 onready var cells = []
 
-
 func _ready():
 	console_log(">", "Ready :)")
 
+func _process(delta):
+	if Input.is_action_just_pressed("ui_up"):
+		Engine.time_scale = 1
+		console_log(">", "Slow Motion: OFF")
+	elif Input.is_action_just_pressed("ui_down"):
+		Engine.time_scale = 0.01
+		console_log(">", "Slow Motion: ON")
 
 func console_log(log_string, values=[]):
 	var logging = ""

@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 
 const entity_scene = preload("res://entity.tscn")
 var ticks_to_start = 3
@@ -6,6 +6,14 @@ const wait_time = 0.03
 
 onready var entities = []
 onready var running = false
+
+#func _physics_process(delta):
+#	update()
+#
+#func _draw():
+#	for entity in entities:
+#		if entity.linear_velocity.length() > 1:
+#			draw_line(entity.position, entity.position + entity.linear_velocity, Color.rosybrown, 1, true)
 
 func spawn_random_entities(amount):
 	for i in range(amount):
